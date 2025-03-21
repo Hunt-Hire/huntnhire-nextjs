@@ -1,36 +1,35 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 222 33% 14%;
+    --background: 222 25% 18%;
     --foreground: 210 40% 98%;
 
-    --card: 222 33% 14%;
+    --card: 222 25% 18%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 33% 14%;
+    --popover: 222 25% 18%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 196 100% 45%;
+    --primary: 196 100% 50%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 217.2 32.6% 17.5%;
+    --secondary: 217.2 32.6% 20%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217.2 32.6% 20%;
+    --muted-foreground: 215 20.2% 75%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 217.2 32.6% 20%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 230 12% 26%;
-    --input: 217.2 32.6% 17.5%;
+    --border: 230 12% 30%;
+    --input: 217.2 32.6% 20%;
     --ring: 212.7 26.8% 83.9%;
     --radius: 0.75rem;
   }
@@ -83,7 +82,7 @@
   }
   
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-gradient-to-r from-primary to-[#FF5E7A] text-primary-foreground px-8 py-3 text-sm font-medium shadow-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:pointer-events-none disabled:opacity-50;
+    @apply inline-flex items-center justify-center rounded-md bg-gradient-to-r from-primary via-primary to-[#0FCCCE] text-primary-foreground px-8 py-3 text-sm font-medium shadow-sm transition-all duration-300 hover:opacity-90 hover:scale-[1.03] focus:outline-none focus:ring-2 focus:ring-primary/40 disabled:pointer-events-none disabled:opacity-50;
   }
   
   .btn-secondary {
