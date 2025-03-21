@@ -16,7 +16,7 @@ const HowItWorks = () => {
     {
       number: '02',
       title: 'Match',
-      description: 'We'll match you with pre-vetted marketing professionals who fit your requirements.',
+      description: 'We\'ll match you with pre-vetted marketing professionals who fit your requirements.',
     },
     {
       number: '03',
