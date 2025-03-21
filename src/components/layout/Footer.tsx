@@ -20,11 +20,11 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <Link to="/" className="text-xl font-bold tracking-tight">
-              <span className="text-primary">Apex</span>
-              <span>Studio</span>
+              <span className="text-primary">Virtual</span>
+              <span className="text-[#FF5E7A]">Mark</span>
             </Link>
             <p className="text-muted-foreground max-w-xs">
-              Delivering premium tech solutions with uncompromising quality and cost-effective scaling.
+              Connecting businesses with expert marketing talent for flexible, scalable growth without the hassle.
             </p>
             <div className="flex space-x-4 text-muted-foreground">
               <a 
@@ -36,7 +36,7 @@ const Footer = () => {
               </a>
               <a 
                 href="#" 
-                className="hover:text-primary transition-colors"
+                className="hover:text-[#FF5E7A] transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
@@ -49,8 +49,8 @@ const Footer = () => {
                 <Twitter size={20} />
               </a>
               <a 
-                href="mailto:hello@apexstudio.com" 
-                className="hover:text-primary transition-colors"
+                href="mailto:hello@virtualmark.com" 
+                className="hover:text-[#FF5E7A] transition-colors"
                 aria-label="Email"
               >
                 <Mail size={20} />
@@ -92,31 +92,31 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
+            <h4 className="text-lg font-semibold mb-4">Marketing Roles</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Digital Strategy
+                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Social Media Pros
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  UI/UX Design
+                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Paid Ads Gurus
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Web Development
+                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Content Creators
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Mobile Development
+                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Client Managers
                 </a>
               </li>
               <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Talent Scaling
+                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Visual Designers
                 </a>
               </li>
             </ul>
@@ -126,7 +126,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Subscribe</h4>
             <p className="text-muted-foreground mb-4">
-              Stay updated with our latest news and offers.
+              Get marketing tips and job alerts.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
               <div className="relative">
@@ -141,7 +141,7 @@ const Footer = () => {
                 />
                 <button 
                   type="submit" 
-                  className="absolute right-1 top-1 p-1.5 bg-primary rounded-md text-primary-foreground hover:bg-primary/90 transition-colors"
+                  className="absolute right-1 top-1 p-1.5 bg-gradient-to-r from-primary to-[#FF5E7A] rounded-md text-primary-foreground hover:opacity-90 transition-opacity"
                   aria-label="Subscribe"
                 >
                   <ArrowRight size={16} />
@@ -153,7 +153,7 @@ const Footer = () => {
 
         <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} ApexStudio. All rights reserved.
+            &copy; {new Date().getFullYear()} VirtualMark. All rights reserved.
           </p>
           <div className="flex items-center space-x-6">
             <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

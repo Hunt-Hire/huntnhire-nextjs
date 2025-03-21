@@ -3,8 +3,10 @@ import { useState, useEffect, useRef } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
-import Services from '@/components/sections/Services';
+import RolesSection from '@/components/sections/Services';
 import HowItWorks from '@/components/sections/HowItWorks';
+import Clients from '@/components/sections/Clients';
+import QuickFAQ from '@/components/sections/QuickFAQ';
 import FAQ from '@/components/sections/FAQ';
 import BookCallModal from '@/components/ui/BookCallModal';
 
@@ -40,16 +42,18 @@ const Index = () => {
       
       <main className="flex-grow">
         <Hero onBookCallClick={() => setIsModalOpen(true)} />
-        <Services />
+        <RolesSection />
         <HowItWorks />
+        <Clients />
+        <QuickFAQ />
         <FAQ />
         
         {/* Book Call section (anchor point) */}
         <div ref={bookCallRef} id="book-call" className="section py-16 bg-primary/5">
           <div className="container-custom text-center">
-            <h2 className="mb-6">Ready to Get Started?</h2>
+            <h2 className="mb-6">Ready to Scale Your Marketing?</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-              Schedule a no-obligation discovery call to discuss your project needs and how we can help your business grow.
+              Schedule a no-obligation discovery call to discuss your marketing needs and how our talent can help your business grow.
             </p>
             <button 
               onClick={() => setIsModalOpen(true)}

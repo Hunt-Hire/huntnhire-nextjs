@@ -44,45 +44,59 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
         }}
       />
 
-      <div className="container-custom relative z-10 mt-16 md:mt-0">
-        <div className="max-w-3xl mx-auto text-center">
+      <div className="container-custom relative z-10 mt-16 md:mt-0 flex flex-col md:flex-row items-center">
+        <div className="max-w-3xl md:w-1/2 text-center md:text-left">
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary/10 border border-primary/20 opacity-0 animate-fade-in">
-            <p className="text-sm font-medium text-primary">Cost-Effective Scaling, Uncompromising Quality</p>
+            <p className="text-sm font-medium text-primary">Scale Your Marketing Smarter, Not Harder</p>
           </div>
           
           <h1 className="opacity-0 animate-fade-in animation-delay-100">
-            Modern Solutions for <br />
-            <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              Ambitious Businesses
+            Virtual Marketing <br />
+            <span className="bg-gradient-to-r from-primary to-[#FF5E7A] bg-clip-text text-transparent">
+              Talent On Demand
             </span>
           </h1>
           
-          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in animation-delay-200">
-            We help innovative companies scale their technical capabilities with premium talent and exceptional results.
+          <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto md:mx-0 opacity-0 animate-fade-in animation-delay-200">
+            Grow your brand with expert marketing professionals ready to join your team within days, not months.
           </p>
           
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in animation-delay-300">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start opacity-0 animate-fade-in animation-delay-300">
             <button 
               onClick={onBookCallClick}
               className="btn-primary"
             >
               Book a Discovery Call
             </button>
-            <a href="#services" className="btn-outline">
-              Explore Services
+            <a href="#roles" className="btn-outline">
+              Start Hiring
             </a>
+          </div>
+        </div>
+        
+        {/* Hero image */}
+        <div className="md:w-1/2 mt-12 md:mt-0 opacity-0 animate-fade-in animation-delay-400">
+          <div className="relative w-full max-w-md mx-auto">
+            <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-primary to-[#FF5E7A] opacity-20 blur-xl"></div>
+            <div className="glass-card overflow-hidden rounded-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+                alt="Marketer at desk with digital dashboard" 
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
       
       {/* Scroll indicator */}
       <a 
-        href="#services" 
+        href="#roles" 
         className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in animation-delay-500 animation-fill-forwards"
         aria-label="Scroll down"
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-sm font-medium text-muted-foreground">Scroll</span>
+          <span className="text-sm font-medium text-muted-foreground">Explore</span>
           <ArrowDown size={20} className="animate-float text-primary" />
         </div>
       </a>

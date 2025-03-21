@@ -11,22 +11,22 @@ const HowItWorks = () => {
     {
       number: '01',
       title: 'Connect',
-      description: 'Schedule a discovery call to discuss your needs and explore how we can help your business grow.',
+      description: 'Schedule a discovery call to discuss your marketing needs and goals.',
     },
     {
       number: '02',
-      title: 'Strategize',
-      description: 'We develop a tailored plan that aligns with your goals, timeline, and budget constraints.',
+      title: 'Match',
+      description: 'We'll match you with pre-vetted marketing professionals who fit your requirements.',
     },
     {
       number: '03',
-      title: 'Implement',
-      description: 'Our team delivers high-quality solutions and resources that integrate seamlessly with your business.',
+      title: 'Hire',
+      description: 'Select your ideal candidate and start working together within 48 hours.',
     },
     {
       number: '04',
-      title: 'Succeed',
-      description: 'We measure results and continue to optimize, ensuring long-term success and scalability.',
+      title: 'Scale',
+      description: 'Grow your marketing efforts with flexible talent that scales with your needs.',
     },
   ];
 
@@ -68,7 +68,7 @@ const HowItWorks = () => {
           </div>
           <h2>How It Works</h2>
           <p className="mt-4 text-xl text-muted-foreground max-w-xl mx-auto">
-            A simple, effective approach to delivering exceptional results.
+            A simple, effective approach to hiring marketing talent.
           </p>
         </div>
 

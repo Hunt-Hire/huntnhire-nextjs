@@ -38,8 +38,8 @@ const Navbar = () => {
           className="text-xl font-bold tracking-tight hover:opacity-90 transition-opacity"
           aria-label="Home"
         >
-          <span className="text-primary">Apex</span>
-          <span>Studio</span>
+          <span className="text-primary">Virtual</span>
+          <span className="text-[#FF5E7A]">Mark</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -47,8 +47,9 @@ const Navbar = () => {
           {isHomePage ? (
             <>
               <a href="#home" className="nav-link">Home</a>
-              <a href="#services" className="nav-link">Services</a>
+              <a href="#roles" className="nav-link">Roles</a>
               <a href="#how-it-works" className="nav-link">Process</a>
+              <a href="#clients" className="nav-link">Clients</a>
               <a href="#faq" className="nav-link">FAQ</a>
             </>
           ) : null}
@@ -82,8 +83,9 @@ const Navbar = () => {
           {isHomePage ? (
             <>
               <a href="#home" className="nav-link w-full py-3">Home</a>
-              <a href="#services" className="nav-link w-full py-3">Services</a>
+              <a href="#roles" className="nav-link w-full py-3">Roles</a>
               <a href="#how-it-works" className="nav-link w-full py-3">Process</a>
+              <a href="#clients" className="nav-link w-full py-3">Clients</a>
               <a href="#faq" className="nav-link w-full py-3">FAQ</a>
             </>
           ) : null}
