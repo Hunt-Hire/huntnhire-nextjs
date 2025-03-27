@@ -49,15 +49,15 @@ const Index = () => {
         <FAQ />
         
         {/* Book Call section (anchor point) */}
-        <div ref={bookCallRef} id="book-call" className="section py-16 bg-primary/5">
+        <div ref={bookCallRef} id="book-call" className="section py-16 bg-[#7960be]/5">
           <div className="container-custom text-center">
-            <h2 className="mb-6">Ready to Scale Your Marketing?</h2>
+            <h2 className="mb-6">Ready to Find Your Perfect Match?</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-              Schedule a no-obligation discovery call to discuss your marketing needs and how our talent can help your business grow.
+              Schedule a no-obligation discovery call to discuss your talent needs and how Hunt & Hire can help your business grow.
             </p>
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="btn-primary"
+              className="btn-primary hover-glow"
             >
               Book a Discovery Call
             </button>

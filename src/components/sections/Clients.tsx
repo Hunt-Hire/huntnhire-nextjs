@@ -9,25 +9,25 @@ const Clients = () => {
   
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Marketing Director, TechGrowth",
-      image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=100&h=100&fit=crop&crop=faces",
+      name: "Raj Patel",
+      role: "Recruitment Director, TechHub",
+      image: "https://images.unsplash.com/photo-1618151313441-bc79b11e5090",
       stars: 5,
-      text: "Finding skilled marketing talent used to take months. With VirtualMark, we hired a social media expert in just 3 days who immediately improved our engagement by 40%.",
+      text: "Hunt & Hire helped us find specialized talent in just a week. Their network of professionals is impressive, and the candidate we hired has transformed our team's productivity.",
     },
     {
-      name: "Michael Rodriguez",
-      role: "Founder, BrandScalers",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=100&h=100&fit=crop&crop=faces",
+      name: "Priya Sharma",
+      role: "Founder, GrowthMakers",
+      image: "https://images.unsplash.com/photo-1573497019707-1c04de26e58c",
       stars: 5,
-      text: "The paid ads specialist we hired through VirtualMark transformed our campaigns. Our ROAS improved by 2.5x in just one month while scaling our ad spend.",
+      text: "The specialist we hired through Hunt & Hire exceeded our expectations. The matching process was seamless, and we found the perfect candidate within days instead of months.",
     },
     {
-      name: "Emma Thompson",
-      role: "CEO, GrowthBoost Agency",
-      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=100&h=100&fit=crop&crop=faces",
+      name: "Dev Anand",
+      role: "CEO, NextLevel Agency",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
       stars: 5,
-      text: "As an agency owner, scaling with quality talent is everything. VirtualMark has been our secret weapon, helping us expand our client services without sacrificing quality.",
+      text: "As a fast-growing agency, finding quality talent quickly is crucial. Hunt & Hire has been our secret advantage, delivering outstanding professionals who hit the ground running.",
     },
   ];
 
@@ -55,12 +55,12 @@ const Clients = () => {
     >
       <div className="container-custom">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-primary/10 border border-primary/20">
-            <p className="text-sm font-medium text-primary">Clients Say</p>
+          <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-[#7960be]/10 border border-[#7960be]/20">
+            <p className="text-sm font-medium text-[#7960be]">Clients Say</p>
           </div>
           <h2>Success Stories</h2>
           <p className="mt-4 text-xl text-muted-foreground max-w-xl mx-auto">
-            Here's what our clients say about working with our marketing talent.
+            Here's what our clients say about working with Hunt & Hire.
           </p>
         </div>
 
@@ -70,34 +70,34 @@ const Clients = () => {
             <AnimatedCard 
               animationDirection="left"
               hoverEffect={false}
-              className="flex flex-col space-y-10 p-8"
+              className="flex flex-col space-y-10 p-8 hover-lift"
             >
               <h3 className="text-xl font-semibold">Trusted by innovative brands</h3>
               <div className="grid grid-cols-2 gap-6">
-                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center">
+                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center hover:bg-[#7960be]/10 transition-colors duration-300">
                   <div className="text-xl font-bold text-white/30">Brand 1</div>
                 </div>
-                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center">
+                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center hover:bg-[#7960be]/10 transition-colors duration-300">
                   <div className="text-xl font-bold text-white/30">Brand 2</div>
                 </div>
-                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center">
+                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center hover:bg-[#7960be]/10 transition-colors duration-300">
                   <div className="text-xl font-bold text-white/30">Brand 3</div>
                 </div>
-                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center">
+                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center hover:bg-[#7960be]/10 transition-colors duration-300">
                   <div className="text-xl font-bold text-white/30">Brand 4</div>
                 </div>
               </div>
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-primary"></div>
+                  <div className="w-1 h-1 rounded-full bg-[#7960be]"></div>
                   <p className="text-sm text-muted-foreground">48-hour talent matching</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-primary"></div>
-                  <p className="text-sm text-muted-foreground">200+ pre-vetted marketers</p>
+                  <div className="w-1 h-1 rounded-full bg-[#7960be]"></div>
+                  <p className="text-sm text-muted-foreground">200+ pre-vetted professionals</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-1 h-1 rounded-full bg-primary"></div>
+                  <div className="w-1 h-1 rounded-full bg-[#7960be]"></div>
                   <p className="text-sm text-muted-foreground">95% client satisfaction</p>
                 </div>
               </div>
@@ -109,10 +109,10 @@ const Clients = () => {
             <AnimatedCard 
               animationDirection="right"
               hoverEffect={false}
-              className="relative"
+              className="relative hover-glow"
             >
               <div className="absolute top-4 right-8">
-                <Quote size={80} className="text-primary/10" />
+                <Quote size={80} className="text-[#7960be]/10" />
               </div>
               <div className="relative">
                 {testimonials.map((testimonial, index) => (
@@ -127,12 +127,12 @@ const Clients = () => {
                     <div className="flex flex-col space-y-6">
                       <div className="flex space-x-1">
                         {[...Array(testimonial.stars)].map((_, i) => (
-                          <Star key={i} size={20} className="fill-primary text-primary" />
+                          <Star key={i} size={20} className="fill-[#7960be] text-[#7960be]" />
                         ))}
                       </div>
                       <p className="text-xl italic">{testimonial.text}</p>
                       <div className="flex items-center space-x-4 mt-6">
-                        <div className="w-12 h-12 rounded-full overflow-hidden">
+                        <div className="w-12 h-12 rounded-full overflow-hidden hover-scale">
                           <img 
                             src={testimonial.image} 
                             alt={testimonial.name}
@@ -151,14 +151,14 @@ const Clients = () => {
               <div className="flex justify-end space-x-2 mt-8">
                 <button 
                   onClick={prevTestimonial}
-                  className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+                  className="p-2 rounded-full bg-white/5 hover:bg-[#7960be]/20 transition-colors"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft size={20} />
                 </button>
                 <button 
                   onClick={nextTestimonial}
-                  className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+                  className="p-2 rounded-full bg-white/5 hover:bg-[#7960be]/20 transition-colors"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight size={20} />

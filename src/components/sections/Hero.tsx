@@ -26,7 +26,7 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        background: 'radial-gradient(circle at center, rgba(14, 165, 233, 0.15), transparent 60%)',
+        background: 'radial-gradient(circle at center, rgba(121, 96, 190, 0.15), transparent 60%)',
       }}
     >
       {/* Background elements */}
@@ -38,7 +38,7 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
       />
 
       <div 
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/10 blur-[100px] opacity-50"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#7960be]/10 blur-[100px] opacity-50"
         style={{
           transform: `translate(-50%, -50%) scale(${1 - scrolled * 0.2})`,
         }}
@@ -46,42 +46,42 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
 
       <div className="container-custom relative z-10 mt-16 md:mt-0 flex flex-col md:flex-row items-center">
         <div className="max-w-3xl md:w-1/2 text-center md:text-left">
-          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-primary/10 border border-primary/20 opacity-0 animate-fade-in">
-            <p className="text-sm font-medium text-primary">Scale Your Marketing Smarter, Not Harder</p>
+          <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-[#7960be]/10 border border-[#7960be]/20 opacity-0 animate-fade-in">
+            <p className="text-sm font-medium text-[#7960be]">Find Your Perfect Talent Match</p>
           </div>
           
           <h1 className="opacity-0 animate-fade-in animation-delay-100">
-            Virtual Marketing <br />
-            <span className="bg-gradient-to-r from-primary to-[#FF5E7A] bg-clip-text text-transparent">
-              Talent On Demand
+            Connecting Exceptional <br />
+            <span className="bg-gradient-to-r from-[#7960be] to-[#9b85de] bg-clip-text text-transparent">
+              Talent With Opportunity
             </span>
           </h1>
           
           <p className="mt-6 text-xl text-muted-foreground max-w-2xl mx-auto md:mx-0 opacity-0 animate-fade-in animation-delay-200">
-            Grow your brand with expert marketing professionals ready to join your team within days, not months.
+            Hunt & Hire helps you find the perfect professional match for your team within days, not months.
           </p>
           
           <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start opacity-0 animate-fade-in animation-delay-300">
             <button 
               onClick={onBookCallClick}
-              className="btn-primary"
+              className="btn-primary hover-glow"
             >
               Book a Discovery Call
             </button>
-            <a href="#roles" className="btn-outline">
-              Start Hiring
+            <a href="#roles" className="btn-outline hover-lift">
+              Explore Talent
             </a>
           </div>
         </div>
         
         {/* Hero image */}
         <div className="md:w-1/2 mt-12 md:mt-0 opacity-0 animate-fade-in animation-delay-400">
-          <div className="relative w-full max-w-md mx-auto">
-            <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-primary to-[#FF5E7A] opacity-20 blur-xl"></div>
+          <div className="relative w-full max-w-md mx-auto hover-scale">
+            <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-[#7960be] to-[#9b85de] opacity-20 blur-xl"></div>
             <div className="glass-card overflow-hidden rounded-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
-                alt="Marketer at desk with digital dashboard" 
+                src="https://images.unsplash.com/photo-1522798514-97ceb8c4f1c8" 
+                alt="Professional at work" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -92,12 +92,12 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
       {/* Scroll indicator */}
       <a 
         href="#roles" 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in animation-delay-500 animation-fill-forwards"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in animation-delay-500 animation-fill-forwards hover-lift"
         aria-label="Scroll down"
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-sm font-medium text-muted-foreground">Explore</span>
-          <ArrowDown size={20} className="animate-float text-primary" />
+          <ArrowDown size={20} className="animate-float text-[#7960be]" />
         </div>
       </a>
     </section>

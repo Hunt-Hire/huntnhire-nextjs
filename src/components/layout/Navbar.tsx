@@ -35,29 +35,32 @@ const Navbar = () => {
       <nav className="container-custom flex items-center justify-between h-16 md:h-20">
         <Link 
           to="/" 
-          className="text-xl font-bold tracking-tight hover:opacity-90 transition-opacity"
+          className="flex items-center hover:opacity-90 transition-opacity"
           aria-label="Home"
         >
-          <span className="text-primary">Virtual</span>
-          <span className="text-[#FF5E7A]">Mark</span>
+          <img 
+            src="/lovable-uploads/122d47fc-4c43-4c2d-93b0-b36ca8f73b8c.png" 
+            alt="Hunt & Hire Logo" 
+            className="h-8 md:h-10"
+          />
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-1">
           {isHomePage ? (
             <>
-              <a href="#home" className="nav-link">Home</a>
-              <a href="#roles" className="nav-link">Roles</a>
-              <a href="#how-it-works" className="nav-link">Process</a>
-              <a href="#clients" className="nav-link">Clients</a>
-              <a href="#faq" className="nav-link">FAQ</a>
+              <a href="#home" className="nav-link hover-lift">Home</a>
+              <a href="#roles" className="nav-link hover-lift">Roles</a>
+              <a href="#how-it-works" className="nav-link hover-lift">Process</a>
+              <a href="#clients" className="nav-link hover-lift">Clients</a>
+              <a href="#faq" className="nav-link hover-lift">FAQ</a>
             </>
           ) : null}
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
+          <Link to="/about" className="nav-link hover-lift">About</Link>
+          <Link to="/contact" className="nav-link hover-lift">Contact</Link>
           <Link 
             to={isHomePage ? "#book-call" : "/contact"} 
-            className="btn-primary ml-4"
+            className="btn-primary ml-4 hover-glow"
           >
             Book a Call
           </Link>
