@@ -135,3 +135,16 @@
   opacity: 1;
   transform: scale(1);
 }
+
+/* Logo hover animations */
+.logo-hover {
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.logo-hover:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}

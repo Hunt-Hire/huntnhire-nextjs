@@ -2,6 +2,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import AnimatedCard from '../ui/AnimatedCard';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from "@/components/ui/carousel";
 
 const Clients = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
@@ -29,6 +36,34 @@ const Clients = () => {
       stars: 5,
       text: "As a fast-growing agency, finding quality talent quickly is crucial. Hunt & Hire has been our secret advantage, delivering outstanding professionals who hit the ground running.",
     },
+  ];
+
+  // Brand logos for the slider
+  const brandLogos = [
+    {
+      name: "TechHub",
+      image: "https://www.logodesignlove.com/images/classic/next-logo-1.jpg"
+    },
+    {
+      name: "GlobalTech",
+      image: "https://www.logodesignlove.com/images/classic/ibm-logo.jpg"
+    },
+    {
+      name: "InnovateX",
+      image: "https://www.logodesignlove.com/images/classic/nasa-logo.jpg"
+    },
+    {
+      name: "FutureWorks",
+      image: "https://www.logodesignlove.com/images/classic/paul-rand-abc-logo.jpg"
+    },
+    {
+      name: "DigitalPrime",
+      image: "https://www.logodesignlove.com/images/classic/shell-logo.jpg"
+    },
+    {
+      name: "TechForward",
+      image: "https://www.logodesignlove.com/images/classic/westinghouse-logo.jpg"
+    }
   ];
 
   const nextTestimonial = () => {
@@ -65,7 +100,7 @@ const Clients = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Client logos */}
+          {/* Client logos slider */}
           <div className="lg:col-span-4 order-2 lg:order-1">
             <AnimatedCard 
               animationDirection="left"
@@ -73,20 +108,33 @@ const Clients = () => {
               className="flex flex-col space-y-10 p-8 hover-lift"
             >
               <h3 className="text-xl font-semibold">Trusted by innovative brands</h3>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center hover:bg-[#7960be]/10 transition-colors duration-300">
-                  <div className="text-xl font-bold text-white/30">Brand 1</div>
+              
+              <Carousel 
+                className="w-full py-4"
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+              >
+                <CarouselContent>
+                  {brandLogos.map((brand, index) => (
+                    <CarouselItem key={index} className="basis-1/2 md:basis-1/2 lg:basis-1/1">
+                      <div className="h-16 bg-white/10 rounded-md flex items-center justify-center p-2 hover:bg-[#7960be]/10 transition-colors duration-300 btn-hover-effect overflow-hidden">
+                        <img 
+                          src={brand.image} 
+                          alt={brand.name} 
+                          className="max-h-12 max-w-full object-contain mix-blend-luminosity hover:mix-blend-normal transition-all duration-300"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="flex justify-center mt-4 gap-2">
+                  <CarouselPrevious className="relative static left-0 translate-y-0 h-8 w-8" />
+                  <CarouselNext className="relative static right-0 translate-y-0 h-8 w-8" />
                 </div>
-                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center hover:bg-[#7960be]/10 transition-colors duration-300">
-                  <div className="text-xl font-bold text-white/30">Brand 2</div>
-                </div>
-                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center hover:bg-[#7960be]/10 transition-colors duration-300">
-                  <div className="text-xl font-bold text-white/30">Brand 3</div>
-                </div>
-                <div className="h-12 bg-white/5 rounded-md flex items-center justify-center hover:bg-[#7960be]/10 transition-colors duration-300">
-                  <div className="text-xl font-bold text-white/30">Brand 4</div>
-                </div>
-              </div>
+              </Carousel>
+              
               <div className="flex flex-col space-y-2">
                 <div className="flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-[#7960be]"></div>
