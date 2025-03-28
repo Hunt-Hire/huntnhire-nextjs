@@ -202,3 +202,113 @@
 .hover-scale {
   @apply transition-all duration-300 hover:scale-[1.02];
 }
+/* Custom Animations */
+@keyframes slide-up {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-bubble {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-60px) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-bubble {
+  animation: float-bubble 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 5s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animation-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.animation-delay-300 {
+  animation-delay: 0.3s;
+}
+
+.animation-delay-400 {
+  animation-delay: 0.4s;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+/* Hover Effects */
+.group:hover .group-hover\:opacity-20 {
+  opacity: 0.2;
+}
+
+.group:hover .group-hover\:opacity-10 {
+  opacity: 0.1;
+}
+
+.group:hover .group-hover\:opacity-50 {
+  opacity: 0.5;
+}
+
+.group:hover .group-hover\:scale-105 {
+  transform: scale(1.05);
+}
+
+.group:hover .group-hover\:shadow-\[0_0_20px_rgba\(121\,96\,190\,0\.3\)\] {
+  box-shadow: 0 0 20px rgba(121, 96, 190, 0.3);
+}
+
+.group:hover .group-hover\:text-\[\#7960be\] {
+  color: #7960be;
+}

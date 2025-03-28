@@ -41,28 +41,28 @@ const Clients = () => {
   // Brand logos for the slider
   const brandLogos = [
     {
-      name: "TechHub",
-      image: "https://www.logodesignlove.com/images/classic/next-logo-1.jpg"
+      name: "Google",
+      image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
     },
     {
-      name: "GlobalTech",
-      image: "https://www.logodesignlove.com/images/classic/ibm-logo.jpg"
+      name: "Microsoft",
+      image: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg"
     },
     {
-      name: "InnovateX",
-      image: "https://www.logodesignlove.com/images/classic/nasa-logo.jpg"
+      name: "Amazon",
+      image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
     },
     {
-      name: "FutureWorks",
-      image: "https://www.logodesignlove.com/images/classic/paul-rand-abc-logo.jpg"
+      name: "Apple",
+      image: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
     },
     {
-      name: "DigitalPrime",
-      image: "https://www.logodesignlove.com/images/classic/shell-logo.jpg"
+      name: "IBM",
+      image: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg"
     },
     {
-      name: "TechForward",
-      image: "https://www.logodesignlove.com/images/classic/westinghouse-logo.jpg"
+      name: "Coca-Cola",
+      image: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg"
     }
   ];
 

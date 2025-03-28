@@ -1,206 +1,166 @@
-
 import { useEffect, useRef, useState } from 'react';
 import AnimatedCard from '../ui/AnimatedCard';
-import { ArrowRight, Calendar, Users, Target, TrendingUp } from 'lucide-react';
+import { ArrowRight, Calendar, Users, Target, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+interface ProcessStep {
+  number: string;
+  title: string;
+  description: string;
+  icon: JSX.Element;
+}
 
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
-  // Steps in the process
-  const steps = [
+  const steps: ProcessStep[] = [
     {
       number: '01',
-      title: 'Connect',
-      description: 'Schedule a discovery call to discuss your marketing needs and goals.',
-      icon: <Calendar size={40} className="text-primary" />,
-      image: "https://images.unsplash.com/photo-1573496546038-82f9c39f6365?q=80&w=500"
+      title: 'Book a Discovery Call',
+      description: "Schedule a consultation with our experts. We'll discuss your agency's goals and define the ideal candidate profile.",
+      icon: <Calendar size={48} className="text-primary" />,
     },
     {
       number: '02',
-      title: 'Match',
-      description: 'We\'ll match you with pre-vetted marketing professionals who fit your requirements.',
-      icon: <Users size={40} className="text-primary" />,
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=500"
+      title: 'We Find Perfect Match',
+      description: 'Our specialized recruiters leverage their expertise and global networks to identify and pre-screen top-tier candidates.',
+      icon: <Users size={48} className="text-primary" />,
     },
     {
       number: '03',
-      title: 'Hire',
-      description: 'Select your ideal candidate and start working together within 48 hours.',
-      icon: <Target size={40} className="text-primary" />,
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=500"
-    },
-    {
-      number: '04',
-      title: 'Scale',
-      description: 'Grow your marketing efforts with flexible talent that scales with your needs.',
-      icon: <TrendingUp size={40} className="text-primary" />,
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=500"
+      title: 'Meet Your Candidate',
+      description: 'Conduct a final interview to select your new team member. We provide comprehensive onboarding support.',
+      icon: <Target size={48} className="text-primary" />,
     },
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          const timer = setInterval(() => {
-            setActiveStep((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
-          }, 3000);
-          
-          return () => clearInterval(timer);
-        }
-      },
-      { threshold: 0.3 }
-    );
+  // Slider navigation
+  const handlePrev = () => {
+    setActiveStep((prev) => (prev === 0 ? steps.length - 1 : prev - 1));
+  };
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [steps.length]);
+  const handleNext = () => {
+    setActiveStep((prev) => (prev === steps.length - 1 ? 0 : prev + 1));
+  };
 
   return (
-    <section 
-      id="how-it-works" 
+    <section
+      id="how-it-works"
       ref={sectionRef}
-      className="section bg-gradient-to-b from-background/30 to-primary/5 py-24"
+      className="section bg-gradient-to-b from-background to-primary/5 py-24 relative overflow-hidden bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]"
     >
-      <div className="container-custom">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-primary/10 border border-primary/20">
-            <p className="text-sm font-medium text-primary">Our Process</p>
+      <div className="container-custom relative z-10">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <div className="inline-block px-5 py-2 mb-6 rounded-full bg-primary/10 border border-primary/20 shadow-md">
+            <p className="text-base font-semibold text-primary">How It Works</p>
           </div>
-          <h2 className="mb-4">How It Works</h2>
-          <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto">
-            Our streamlined approach connects you with top marketing talent in just four simple steps.
-            No lengthy recruitment processes, just quick access to the skills you need.
+          <h2 className="text-4xl font-bold tracking-tight">Skip the Hassle, Scale Your Agency</h2>
+          <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            We handle the entire talent acquisition process so you can focus on growing your business.
           </p>
         </div>
 
         {/* Steps Timeline */}
-        <div className="relative mb-20">
-          <div className="hidden md:block absolute left-0 right-0 top-1/2 h-1 bg-gradient-to-r from-primary/20 via-primary/40 to-primary/20 transform -translate-y-1/2" />
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-            {steps.map((step, index) => (
-              <div 
-                key={index} 
-                className={`relative transition-all duration-500 ${
-                  activeStep === index ? 'scale-105' : 'scale-100'
-                }`}
-              >
-                {/* Step Number Circle */}
-                <div className="absolute left-1/2 -top-6 transform -translate-x-1/2 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-lg shadow-lg z-10">
-                  {step.number}
-                </div>
-                
-                <AnimatedCard
-                  className={`text-center h-full ${
-                    activeStep === index 
-                      ? 'border-2 border-primary/30 shadow-lg shadow-primary/10' 
-                      : 'border border-white/10'
-                  }`}
-                  animationDirection="up"
-                >
-                  <div className="p-8">
-                    <div className="mx-auto mb-6 w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                      {step.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                    <p className="text-muted-foreground mb-6">{step.description}</p>
-                    
-                    {activeStep === index && (
-                      <div className="mt-4 flex justify-center">
-                        <button 
-                          onClick={() => setActiveStep((index + 1) % steps.length)}
-                          className="flex items-center text-primary font-medium hover:text-primary/80 transition-colors"
-                        >
-                          Next Step <ArrowRight size={16} className="ml-2" />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </AnimatedCard>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
+          {steps.map((step, index) => (
+            <AnimatedCard
+              key={index}
+              animationDelay={index * 100}
+              className={`relative flex flex-col items-center text-center p-6 rounded-xl bg-background/95 shadow-lg border border-white/5 transition-all duration-300 ${
+                activeStep === index ? 'scale-105 border-primary/30 shadow-primary/10' : ''
+              }`}
+            >
+              <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-primary text-white font-bold text-lg flex items-center justify-center shadow-md">
+                {step.number}
               </div>
-            ))}
+              <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6 mt-6">
+                {step.icon}
+              </div>
+              <h3 className="text-2xl font-extrabold text-primary mb-4">{step.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+            </AnimatedCard>
+          ))}
+        </div>
+
+        {/* Redesigned "Your Path to Top Talent" Section as a Slider */}
+        <div className="mb-20">
+          <h3 className="text-3xl font-bold text-center mb-12">Your Path to Top Talent</h3>
+          <div className="relative" ref={sliderRef}>
+            {/* Slider Content */}
+            <div className="flex items-center justify-center">
+              <div
+                className="w-full max-w-2xl bg-gradient-to-r from-primary/5 to-primary/10 rounded-2xl p-8 shadow-lg transition-opacity duration-500"
+                key={activeStep} // Key ensures the fade transition triggers on step change
+              >
+                <div className="flex flex-col items-center gap-6 text-center">
+                  {/* Icon */}
+                  <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                    {steps[activeStep].icon}
+                  </div>
+                  {/* Text Content */}
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                        {activeStep + 1}
+                      </div>
+                      <h4 className="text-2xl font-semibold text-white">{steps[activeStep].title}</h4>
+                    </div>
+                    <p className="text-gray-300 leading-relaxed max-w-md mx-auto">{steps[activeStep].description}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Slider Navigation */}
+            <button
+              onClick={handlePrev}
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 p-3 rounded-full bg-primary/20 text-white hover:bg-primary/40 transition-colors duration-300"
+              aria-label="Previous step"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 p-3 rounded-full bg-primary/20 text-white hover:bg-primary/40 transition-colors duration-300"
+              aria-label="Next step"
+            >
+              <ChevronRight size={24} />
+            </button>
+
+            {/* Slider Dots */}
+            <div className="flex justify-center gap-2 mt-6">
+              {steps.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveStep(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    activeStep === index ? 'bg-primary scale-125' : 'bg-gray-500'
+                  }`}
+                  aria-label={`Go to step ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Featured Step Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-10">
-          <div className="order-2 lg:order-1">
-            <AnimatedCard 
-              animationDirection="left"
-              className="p-0 overflow-hidden"
-              hoverEffect={false}
-            >
-              <div className="p-1">
-                <div className="relative overflow-hidden rounded-lg">
-                  <img 
-                    src={steps[activeStep].image} 
-                    alt={steps[activeStep].title} 
-                    className="w-full h-[350px] object-cover transition-transform duration-700 hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent flex items-end">
-                    <div className="p-6 w-full">
-                      <h3 className="text-2xl font-bold mb-2">{steps[activeStep].title}</h3>
-                      <p className="text-white/80">{steps[activeStep].description}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </AnimatedCard>
-          </div>
-          
-          <div className="order-1 lg:order-2">
-            <div className="space-y-6">
-              <h3 className="text-3xl font-bold">Why Our Process Works</h3>
-              <p className="text-muted-foreground">
-                We've refined our approach to make hiring marketing talent as seamless as possible. 
-                Our platform connects you with pre-vetted professionals who have demonstrated expertise 
-                in their field.
-              </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-bold">1</span>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold">48-Hour Placement</h4>
-                    <p className="text-muted-foreground">Most clients are paired with talent and ready to start work within 48 hours of their initial call.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-bold">2</span>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold">Pre-Vetted Experts</h4>
-                    <p className="text-muted-foreground">We accept only the top 5% of marketing talent who apply to join our network after thorough evaluation.</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <span className="text-primary font-bold">3</span>
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-semibold">Flexible Scaling</h4>
-                    <p className="text-muted-foreground">Easily scale your marketing team up or down based on your current needs and project requirements.</p>
-                  </div>
-                </div>
-              </div>
-              
-              <button className="btn-primary mt-6">
-                Start Your Journey
-              </button>
+        {/* Updated Calendly Section with Iframe */}
+        <div className="text-center mt-20">
+          <h3 className="text-3xl font-bold mb-6">Schedule Your Free Growth Consultation Today</h3>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
+            Book a discovery call with our team to discuss your needs and kickstart the hiring process.
+          </p>
+          <div className="max-w-4xl mx-auto p-6 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl shadow-lg border border-white/5">
+            <div className="relative w-full h-[1000px] rounded-lg overflow-hidden">
+              <iframe
+                src="https://calendly.com/hassaan-huntnhire/new-meeting"
+                className="w-full h-full border-0"
+                title="Schedule a Discovery Call with Hunt & Hire"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </div>
         </div>

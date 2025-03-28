@@ -21,9 +21,9 @@ const Footer = () => {
           <div className="space-y-4">
             <Link to="/" className="flex items-center hover:opacity-90 transition-opacity">
               <img 
-                src="/lovable-uploads/122d47fc-4c43-4c2d-93b0-b36ca8f73b8c.png" 
+                src="/lovable-uploads/Hunt&Hire.png"
                 alt="Hunt & Hire Logo" 
-                className="h-8"
+                className="h-12"
               />
             </Link>
             <p className="text-muted-foreground max-w-xs">

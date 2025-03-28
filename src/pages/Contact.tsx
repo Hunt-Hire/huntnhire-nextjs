@@ -1,5 +1,5 @@
-
 import { useEffect, useState } from 'react';
+import axios from 'axios'; // Import axios
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import AnimatedCard from '@/components/ui/AnimatedCard';
@@ -11,30 +11,43 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      console.log('Form submitted:', { name, email, message });
+    setError('');
+  
+    try {
+      const response = await axios.post('http://localhost:5000/send-email', {
+        name,
+        email,
+        message,
+      });
+  
+      if (response.status === 200) {
+        setIsSubmitted(true);
+        setName('');
+        setEmail('');
+        setMessage('');
+  
+        // Reset submission status after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 3000);
+      } else {
+        throw new Error(response.data.message || 'Failed to send email');
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'An error occurred. Please try again.');
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setName('');
-      setEmail('');
-      setMessage('');
-      
-      // Reset submission status after 3 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 3000);
-    }, 1000);
+    }
   };
 
   return (
@@ -91,6 +104,11 @@ const Contact = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {error && (
+                      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-md">
+                        {error}
+                      </div>
+                    )}
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium mb-2">
                         Name
@@ -173,11 +191,11 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-medium mb-1">Email Us</h4>
-                      <a href="mailto:hello@apexstudio.com" className="text-primary hover:underline">
-                        hello@apexstudio.com
+                      <a href="mailto:careers@huntnhire.co" className="text-primary hover:underline">
+                        careers@huntnhire.co
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">
-                        For general inquiries and information
+                        Email us at admin@huntnhire.co if you have any queries.
                       </p>
                     </div>
                   </div>
