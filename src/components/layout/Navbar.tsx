@@ -28,8 +28,8 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-10 inset-x-0 z-50 transition-all duration-300 ${
-        scrollPosition > 10 ? 'bg-background/80 backdrop-blur-md border-b border-white/5 shadow-lg' : ''
+      className={`fixed top-10 inset-x-0 z-40 transition-all duration-300 ${
+        scrollPosition > 10 ? 'bg-background/90 backdrop-blur-md border-b border-white/5 shadow-lg' : ''
       }`}
     >
       <nav className="container-custom flex items-center justify-between h-16 md:h-20">
@@ -62,7 +62,22 @@ const Navbar = () => {
                 How To Apply
               </a>
             </>
-          ) : null}
+          ) : (
+            <>
+              <Link to="/" className="nav-link hover-lift">
+                Home
+              </Link>
+              <Link to="/careers" className="nav-link hover-lift">
+                Careers
+              </Link>
+              <Link to="/about" className="nav-link hover-lift">
+                About
+              </Link>
+              <Link to="/contact" className="nav-link hover-lift">
+                Contact
+              </Link>
+            </>
+          )}
           <a
             href={isHomePage ? '#how-it-works' : '/contact'}
             className="btn-primary ml-4 hover-glow"
@@ -109,7 +124,22 @@ const Navbar = () => {
                 How To Apply
               </a>
             </>
-          ) : null}
+          ) : (
+            <>
+              <Link to="/" className="nav-link w-full py-3">
+                Home
+              </Link>
+              <Link to="/careers" className="nav-link w-full py-3">
+                Careers
+              </Link>
+              <Link to="/about" className="nav-link w-full py-3">
+                About
+              </Link>
+              <Link to="/contact" className="nav-link w-full py-3">
+                Contact
+              </Link>
+            </>
+          )}
           <a
             href={isHomePage ? '#how-it-works' : '/contact'}
             className="btn-primary mt-4 w-full flex justify-center"

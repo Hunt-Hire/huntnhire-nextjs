@@ -49,7 +49,7 @@ const Index = () => {
       <SlimHeader />
       <Navbar />
       
-      <main className="flex-grow pt-[106px] md:pt-[120px]">
+      <main className="flex-grow pt-[120px]">
         <Hero onBookCallClick={handleBookCallClick} />
         <UnlockGrowth /> 
         <PrecisionPlacement />

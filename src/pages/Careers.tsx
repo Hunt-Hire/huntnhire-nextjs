@@ -14,7 +14,7 @@ const Careers = () => {
       <SlimHeader />
       <Navbar />
       
-      <main className="flex-grow pt-[106px] md:pt-[120px]">
+      <main className="flex-grow pt-[120px]">
         <section className="py-20 md:py-32">
           <div className="container-custom">
             <div className="max-w-4xl mx-auto text-center mb-16">

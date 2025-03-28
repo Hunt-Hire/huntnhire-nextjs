@@ -11,7 +11,7 @@ const SlimHeader = () => {
   ];
 
   return (
-    <header className="fixed top-0 inset-x-0 h-10 bg-background/80 backdrop-blur-md border-b border-white/5 z-60">
+    <header className="fixed top-0 inset-x-0 h-10 bg-background/90 backdrop-blur-md border-b border-white/5 z-50">
       <div className="container-custom h-full flex items-center justify-between">
         {/* Social Links */}
         <div className="flex items-center space-x-3 md:space-x-4">
