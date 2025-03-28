@@ -23,7 +23,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/Hunt&Hire.png"
                 alt="Hunt & Hire Logo" 
-                className="h-12"
+                className="h-32"
               />
             </Link>
             <p className="text-muted-foreground max-w-xs">
