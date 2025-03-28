@@ -1,5 +1,7 @@
+
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import SlimHeader from '@/components/layout/SlimHeader';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
@@ -44,9 +46,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SlimHeader />
       <Navbar />
       
-      <main className="flex-grow">
+      <main className="flex-grow pt-[106px] md:pt-[120px]">
         <Hero onBookCallClick={handleBookCallClick} />
         <UnlockGrowth /> 
         <PrecisionPlacement />

@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+      className={`fixed top-10 inset-x-0 z-50 transition-all duration-300 ${
         scrollPosition > 10 ? 'bg-background/80 backdrop-blur-md border-b border-white/5 shadow-lg' : ''
       }`}
     >
@@ -40,7 +41,7 @@ const Navbar = () => {
           <img
             src="/lovable-uploads/Hunt&Hire.png"
             alt="Hunt & Hire Logo"
-            className="h-64 md:h-56"
+            className="h-12 md:h-14"
           />
         </Link>
 
@@ -48,35 +49,32 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-1">
           {isHomePage ? (
             <>
-              <a href="#home" className="nav-link hover-lift">
-                Home
+              <a href="#how-it-works" className="nav-link hover-lift">
+                How It Works
               </a>
               <a href="#roles" className="nav-link hover-lift">
-                Roles
+                Our Roles
               </a>
+              <Link to="/careers" className="nav-link hover-lift">
+                Careers
+              </Link>
               <a href="#how-it-works" className="nav-link hover-lift">
-                Process
-              </a>
-              <a href="#clients" className="nav-link hover-lift">
-                Clients
-              </a>
-              <a href="#faq" className="nav-link hover-lift">
-                FAQ
+                How To Apply
               </a>
             </>
           ) : null}
-          <Link to="/about" className="nav-link hover-lift">
-            About
-          </Link>
-          <Link to="/contact" className="nav-link hover-lift">
-            Contact
-          </Link>
           <a
             href={isHomePage ? '#how-it-works' : '/contact'}
             className="btn-primary ml-4 hover-glow"
           >
-            Book a Call
+            Book a Discovery Call
           </a>
+          <button
+            className="ml-4 flex items-center p-2 rounded-md text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Search"
+          >
+            <Search size={20} />
+          </button>
         </div>
 
         {/* Mobile menu button */}
@@ -98,35 +96,33 @@ const Navbar = () => {
         <div className="container-custom py-6 space-y-4 flex flex-col">
           {isHomePage ? (
             <>
-              <a href="#home" className="nav-link w-full py-3">
-                Home
+              <a href="#how-it-works" className="nav-link w-full py-3">
+                How It Works
               </a>
               <a href="#roles" className="nav-link w-full py-3">
-                Roles
+                Our Roles
               </a>
+              <Link to="/careers" className="nav-link w-full py-3">
+                Careers
+              </Link>
               <a href="#how-it-works" className="nav-link w-full py-3">
-                Process
-              </a>
-              <a href="#clients" className="nav-link w-full py-3">
-                Clients
-              </a>
-              <a href="#faq" className="nav-link w-full py-3">
-                FAQ
+                How To Apply
               </a>
             </>
           ) : null}
-          <Link to="/about" className="nav-link w-full py-3">
-            About
-          </Link>
-          <Link to="/contact" className="nav-link w-full py-3">
-            Contact
-          </Link>
           <a
             href={isHomePage ? '#how-it-works' : '/contact'}
             className="btn-primary mt-4 w-full flex justify-center"
           >
-            Book a Call
+            Book a Discovery Call
           </a>
+          <button
+            className="mt-4 w-full flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-primary transition-colors"
+            aria-label="Search"
+          >
+            <Search size={20} />
+            <span className="ml-2">Search</span>
+          </button>
         </div>
       </div>
     </header>
