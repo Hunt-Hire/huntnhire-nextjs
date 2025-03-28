@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
+import UnlockGrowth from '@/components/sections/UnlockGrowth';
+import PrecisionPlacement from '@/components/sections/PrecisionPlacement';
 import RolesSection from '@/components/sections/Services';
 import HowItWorks from '@/components/sections/HowItWorks';
 import Clients from '@/components/sections/Clients';
@@ -46,6 +48,8 @@ const Index = () => {
       
       <main className="flex-grow">
         <Hero onBookCallClick={handleBookCallClick} />
+        <UnlockGrowth /> 
+        <PrecisionPlacement />
         <RolesSection />
         <HowItWorks />
         <Clients />
