@@ -48,7 +48,7 @@ const Index = () => {
       
       <main className="flex-grow">
         <Hero onBookCallClick={handleBookCallClick} />
-        <UnlockGrowth /> 
+        <UnlockGrowth />
         <PrecisionPlacement />
         <RolesSection />
         <HowItWorks />
