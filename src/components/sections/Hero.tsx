@@ -1,3 +1,4 @@
+
 import { ArrowRight } from 'lucide-react';
 
 interface HeroProps {
@@ -8,7 +9,15 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
   const handleExploreRolesClick = () => {
     const section = document.querySelector('#roles');
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      // Account for fixed header height (approximately 104px)
+      const headerOffset = 104;
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 

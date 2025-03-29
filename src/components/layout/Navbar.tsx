@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search, Facebook, Instagram, Youtube, Linkedin, Mail } from 'lucide-react';
@@ -38,6 +39,11 @@ const Navbar = () => {
 
   // Navigation handlers
   const handleHowItWorksClick = () => {
+    if (location.pathname !== '/') {
+      window.location.href = '/#how-it-works';
+      return;
+    }
+    
     const section = document.querySelector('#how-it-works');
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
@@ -45,14 +51,12 @@ const Navbar = () => {
   };
 
   const handleRolesClick = () => {
-    const section = document.querySelector('#roles');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      window.location.href = '/#roles';
+      return;
     }
-  };
-
-  const handleHowToApplyClick = () => {
-    const section = document.querySelector('#how-to-apply');
+    
+    const section = document.querySelector('#roles');
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
@@ -60,7 +64,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-transform duration-300 ${
+      className={`fixed top-0 inset-x-0 z-40 transition-transform duration-300 ${
         isVisible ? 'translate-y-0' : '-translate-y-[100%]'
       }`}
     >
@@ -111,13 +115,13 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <span className="text-muted-foreground text-sm font-medium">FAQs</span>
             <a
-              href="/faqs#client"
+              href="/about/#client-faqs"
               className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
             >
               Client-Related FAQs
             </a>
             <a
-              href="/faqs#talent"
+              href="/about/#talent-faqs"
               className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
             >
               Talent-Related FAQs
@@ -157,12 +161,15 @@ const Navbar = () => {
           <a onClick={handleRolesClick} className="nav-link hover-lift cursor-pointer">
             Our Roles
           </a>
+          <Link to="/about" className="nav-link hover-lift">
+            About
+          </Link>
+          <Link to="/contact" className="nav-link hover-lift">
+            Contact
+          </Link>
           <Link to="/careers" className="nav-link hover-lift">
             Careers
           </Link>
-          <a onClick={handleHowToApplyClick} className="nav-link hover-lift cursor-pointer">
-            How To Apply
-          </a>
           <a
             onClick={handleHowItWorksClick}
             className="btn-primary ml-4 hover-glow cursor-pointer"
@@ -201,12 +208,15 @@ const Navbar = () => {
           <a onClick={handleRolesClick} className="nav-link w-full py-3 cursor-pointer">
             Our Roles
           </a>
+          <Link to="/about" className="nav-link w-full py-3">
+            About
+          </Link>
+          <Link to="/contact" className="nav-link w-full py-3">
+            Contact
+          </Link>
           <Link to="/careers" className="nav-link w-full py-3">
             Careers
           </Link>
-          <a onClick={handleHowToApplyClick} className="nav-link w-full py-3 cursor-pointer">
-            How To Apply
-          </a>
           <a
             onClick={handleHowItWorksClick}
             className="btn-primary mt-4 w-full flex justify-center cursor-pointer"

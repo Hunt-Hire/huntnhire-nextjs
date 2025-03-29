@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
@@ -20,14 +21,23 @@ const Index = () => {
       if (window.location.hash) {
         const element = document.querySelector(window.location.hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          // Account for fixed header height (approximately 104px)
+          const headerOffset = 104;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
       }
     };
 
     // Trigger smooth scrolling on initial load if there's a hash
     if (location.hash) {
-      handleHashChange();
+      // Small delay to ensure the page is fully loaded
+      setTimeout(handleHashChange, 100);
     }
 
     window.addEventListener('hashchange', handleHashChange);
@@ -38,7 +48,15 @@ const Index = () => {
   const handleBookCallClick = () => {
     const howItWorksSection = document.querySelector('#how-it-works');
     if (howItWorksSection) {
-      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+      // Account for fixed header height (approximately 104px)
+      const headerOffset = 104;
+      const elementPosition = howItWorksSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
