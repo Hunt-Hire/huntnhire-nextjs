@@ -50,13 +50,13 @@ const SlimHeader = () => {
         <div className="hidden md:flex items-center space-x-4">
           <span className="text-muted-foreground text-sm font-medium">FAQs</span>
           <Link
-            to="/about/#client-faqs"
+            to="/#quick-faq"
             className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
           >
             Client-Related FAQs
           </Link>
           <Link
-            to="/about/#talent-faqs"
+            to="/#faq"
             className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
           >
             Talent-Related FAQs

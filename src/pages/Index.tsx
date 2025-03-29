@@ -71,8 +71,12 @@ const Index = () => {
         <RolesSection />
         <HowItWorks />
         <Clients />
-        <QuickFAQ />
-        <FAQ />
+        <div id="quick-faq">
+          <QuickFAQ />
+        </div>
+        <div id="faq">
+          <FAQ />
+        </div>
       </main>
       
       <Footer />

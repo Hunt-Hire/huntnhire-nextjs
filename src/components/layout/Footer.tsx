@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mail, Linkedin, Instagram, Twitter } from 'lucide-react';
+import { ArrowRight, Mail, Linkedin, Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -27,38 +27,11 @@ const Footer = () => {
               />
             </Link>
             <p className="text-muted-foreground max-w-xs">
-              Connecting businesses with exceptional talent for flexible, scalable growth without the hassle.
+              Build Your Dream Team Swiftly and Smartly with Us!
             </p>
-            <div className="flex space-x-4 text-muted-foreground">
-              <a 
-                href="#" 
-                className="hover:text-[#7960be] transition-colors hover-lift" 
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a 
-                href="#" 
-                className="hover:text-[#9b85de] transition-colors hover-lift"
-                aria-label="Instagram"
-              >
-                <Instagram size={20} />
-              </a>
-              <a 
-                href="#" 
-                className="hover:text-[#7960be] transition-colors hover-lift"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
-              </a>
-              <a 
-                href="mailto:hello@huntandhire.com" 
-                className="hover:text-[#9b85de] transition-colors hover-lift"
-                aria-label="Email"
-              >
-                <Mail size={20} />
-              </a>
-            </div>
+            <p className="text-muted-foreground max-w-xs">
+              We provide elite global professionals, so your marketing or SaaS agency can scale rapidly and efficiently.
+            </p>
           </div>
 
           {/* Quick Links */}
@@ -71,66 +44,78 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
-                  About Us
+                <Link to="/careers" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
+                  Terms & Conditions
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Important Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">Important Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/#roles" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
+                  Our Roles
+                </Link>
+              </li>
+              <li>
+                <Link to="/#faq" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
+                  FAQs
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
-                  Contact
+                  Contact Us
                 </Link>
               </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
-                  Privacy Policy
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
-                  Terms of Service
-                </a>
-              </li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Let's Connect */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Available Roles</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
-                  Development Experts
-                </a>
-              </li>
-              <li>
-                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
-                  Marketing Specialists
-                </a>
-              </li>
-              <li>
-                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
-                  Project Managers
-                </a>
-              </li>
-              <li>
-                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
-                  UX/UI Designers
-                </a>
-              </li>
-              <li>
-                <a href="#roles" className="text-muted-foreground hover:text-foreground transition-colors hover-lift">
-                  Data Analysts
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Newsletter */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Subscribe</h4>
-            <p className="text-muted-foreground mb-4">
-              Get talent insights and job alerts.
-            </p>
+            <h4 className="text-lg font-semibold mb-4">Let's Connect!</h4>
+            <div className="flex space-x-4 text-muted-foreground mb-4">
+              <a 
+                href="https://facebook.com/huntnhire" 
+                className="hover:text-[#7960be] transition-colors hover-lift" 
+                aria-label="Facebook"
+              >
+                <Facebook size={20} />
+              </a>
+              <a 
+                href="https://instagram.com/huntnhire" 
+                className="hover:text-[#9b85de] transition-colors hover-lift"
+                aria-label="Instagram"
+              >
+                <Instagram size={20} />
+              </a>
+              <a 
+                href="https://youtube.com/huntnhire" 
+                className="hover:text-[#7960be] transition-colors hover-lift"
+                aria-label="YouTube"
+              >
+                <Youtube size={20} />
+              </a>
+              <a 
+                href="https://linkedin.com/company/huntnhire" 
+                className="hover:text-[#9b85de] transition-colors hover-lift"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={20} />
+              </a>
+            </div>
             <form onSubmit={handleSubmit} className="flex flex-col space-y-2">
               <div className="relative">
                 <input
@@ -159,15 +144,15 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Hunt & Hire. All rights reserved.
           </p>
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-lift">
+            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-lift">
               Privacy
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-lift">
+            </Link>
+            <Link to="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-lift">
               Terms
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-lift">
+            </Link>
+            <Link to="/sitemap" className="text-sm text-muted-foreground hover:text-foreground transition-colors hover-lift">
               Sitemap
-            </a>
+            </Link>
           </div>
         </div>
       </div>
