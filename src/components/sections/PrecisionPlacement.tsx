@@ -34,7 +34,11 @@ const PrecisionPlacement = () => {
 
   return (
     <section
-      className="section bg-gradient-to-b from-secondary/5 to-background py-20 relative overflow-hidden bg-[linear-gradient(to_right,#7960be20_1px,transparent_1px),linear-gradient(to_bottom,#7960be20_1px,transparent_1px)] bg-[size:20px_20px]"
+      className="section py-20 relative overflow-hidden 
+      bg-gradient-to-b from-secondary/5 to-background 
+      bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),
+          linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)]
+      bg-[size:24px_24px]"
     >
       <div className="container-custom relative z-10">
         {/* Header */}
