@@ -1,4 +1,3 @@
-
 import { Facebook, Instagram, Youtube, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -46,8 +45,8 @@ const SlimHeader = () => {
   };
 
   return (
-    <header className="fixed top-0 inset-x-0 h-10 bg-background/80 backdrop-blur-md border-b border-white/5 z-50">
-      <div className="container-custom flex items-center justify-between h-full px-4 md:px-12">
+    <header className="fixed top-0 inset-x-0 h-10 bg-background/80 backdrop-blur-md border-b border-white/5 z-50 w-full">
+      <div className="flex items-center justify-between h-full px-4 md:px-12">
         {/* Left: Social Media Icons */}
         <div className="flex items-center space-x-4">
           <a

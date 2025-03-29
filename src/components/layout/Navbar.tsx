@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search, Facebook, Instagram, Youtube, Linkedin, Mail } from 'lucide-react';
@@ -64,82 +63,45 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-transform duration-300 ${
+      className={`fixed top-[42px] inset-x-0 z-40 transition-transform duration-300 w-full ${
         isVisible ? 'translate-y-0' : '-translate-y-[100%]'
       }`}
     >
-      {/* Slim Header */}
-      <div className="h-10 bg-background/80 backdrop-blur-md border-b border-white/5">
-        <div className="container-custom flex items-center justify-between h-full px-4 md:px-12">
-          {/* Left: Social Media Icons */}
+      {/* Slim Header (for reference, assuming it's above this component) */}
+      {/* <div className="h-10 bg-background/80 backdrop-blur-md border-b border-white/5">
+        <div className="flex items-center justify-between h-full px-4 md:px-12">
           <div className="flex items-center space-x-4">
-            <a
-              href="https://facebook.com/huntnhire"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Facebook"
-            >
+            <a href="https://facebook.com/huntnhire" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
               <Facebook size={18} />
             </a>
-            <a
-              href="https://instagram.com/huntnhire"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="Instagram"
-            >
+            <a href="https://instagram.com/huntnhire" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
               <Instagram size={18} />
             </a>
-            <a
-              href="https://youtube.com/huntnhire"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="YouTube"
-            >
+            <a href="https://youtube.com/huntnhire" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="YouTube">
               <Youtube size={18} />
             </a>
-            <a
-              href="https://linkedin.com/company/huntnhire"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="LinkedIn"
-            >
+            <a href="https://linkedin.com/company/huntnhire" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
               <Linkedin size={18} />
             </a>
           </div>
-
-          {/* Right: FAQs and Email (Hidden on small screens) */}
           <div className="hidden md:flex items-center space-x-4">
             <span className="text-muted-foreground text-sm font-medium">FAQs</span>
-            <a
-              href="/about/#client-faqs"
-              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-            >
+            <a href="/about/#client-faqs" className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors">
               Client-Related FAQs
             </a>
-            <a
-              href="/about/#talent-faqs"
-              className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-            >
+            <a href="/about/#talent-faqs" className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors">
               Talent-Related FAQs
             </a>
-            <a
-              href="mailto:careers@huntnhire.co"
-              className="flex items-center space-x-1 text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-              aria-label="Email"
-            >
+            <a href="mailto:careers@huntnhire.co" className="flex items-center space-x-1 text-muted-foreground hover:text-primary text-sm font-medium transition-colors" aria-label="Email">
               <Mail size={18} />
               <span>careers@huntnhire.co</span>
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Navbar */}
-      <nav className="container-custom flex items-center justify-between h-16 md:h-20 bg-background/80 backdrop-blur-md border-b border-white/5">
+      <nav className="flex items-center justify-between h-16 md:h-20 bg-background/80 backdrop-blur-md border-b border-white/5 w-full px-4 md:px-12">
         {/* Left: Logo */}
         <Link
           to="/"
@@ -197,11 +159,11 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden absolute top-[104px] inset-x-0 bg-background/95 backdrop-blur-lg border-b border-white/5 shadow-lg transition-all duration-300 ease-in-out ${
+        className={`md:hidden absolute top-[106px] inset-x-0 bg-background/95 backdrop-blur-lg border-b border-white/5 shadow-lg transition-all duration-300 ease-in-out w-full ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'
         }`}
       >
-        <div className="container-custom py-6 space-y-4 flex flex-col">
+        <div className="py-6 space-y-4 flex flex-col px-4 md:px-12">
           <a onClick={handleHowItWorksClick} className="nav-link w-full py-3 cursor-pointer">
             How It Works
           </a>
