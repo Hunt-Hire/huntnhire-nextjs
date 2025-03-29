@@ -22,14 +22,22 @@ const Index = () => {
       if (window.location.hash) {
         const element = document.querySelector(window.location.hash);
         if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+          // Add offset for the fixed header
+          const headerOffset = 120;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
       }
     };
 
     // Trigger smooth scrolling on initial load if there's a hash
     if (location.hash) {
-      handleHashChange();
+      setTimeout(handleHashChange, 100); // Small delay to ensure DOM is ready
     }
 
     window.addEventListener('hashchange', handleHashChange);
@@ -40,7 +48,15 @@ const Index = () => {
   const handleBookCallClick = () => {
     const howItWorksSection = document.querySelector('#how-it-works');
     if (howItWorksSection) {
-      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+      // Add offset for the fixed header
+      const headerOffset = 120;
+      const elementPosition = howItWorksSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 

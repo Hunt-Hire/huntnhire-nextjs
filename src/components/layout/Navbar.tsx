@@ -6,20 +6,32 @@ import { Menu, X, Search } from 'lucide-react';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   // Check if on the home page
   const isHomePage = location.pathname === '/';
 
-  // Handle scroll event for navbar transparency
+  // Handle scroll event for navbar transparency and hiding
   useEffect(() => {
     const handleScroll = () => {
-      setScrollPosition(window.scrollY);
+      const currentScrollY = window.scrollY;
+      setScrollPosition(currentScrollY);
+      
+      // Hide navbar when scrolling down and show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   // Close mobile menu when path changes
   useEffect(() => {
@@ -30,7 +42,7 @@ const Navbar = () => {
     <header
       className={`fixed top-10 inset-x-0 z-40 transition-all duration-300 ${
         scrollPosition > 10 ? 'bg-background/90 backdrop-blur-md border-b border-white/5 shadow-lg' : ''
-      }`}
+      } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <nav className="container-custom flex items-center justify-between h-16 md:h-20">
         <Link
