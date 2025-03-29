@@ -10,7 +10,11 @@ import {
   CarouselNext
 } from "@/components/ui/carousel";
 
-const Clients = () => {
+interface ClientsProps {
+  id?: string;
+}
+
+const Clients = ({ id }: ClientsProps) => {
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   
@@ -84,7 +88,7 @@ const Clients = () => {
 
   return (
     <section 
-      id="clients" 
+      id={id || "clients"} 
       ref={sectionRef}
       className="section relative overflow-hidden"
     >

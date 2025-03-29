@@ -3,6 +3,48 @@ import { Facebook, Instagram, Youtube, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const SlimHeader = () => {
+  const handleClientFaqClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.location.pathname !== '/') {
+      window.location.href = '/#quick-faq';
+      return;
+    }
+    
+    const section = document.querySelector('#quick-faq');
+    if (section) {
+      // Account for fixed header height
+      const headerOffset = 104;
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  const handleTalentFaqClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.location.pathname !== '/') {
+      window.location.href = '/#faq';
+      return;
+    }
+    
+    const section = document.querySelector('#faq');
+    if (section) {
+      // Account for fixed header height
+      const headerOffset = 104;
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <header className="fixed top-0 inset-x-0 h-10 bg-background/80 backdrop-blur-md border-b border-white/5 z-50">
       <div className="container-custom flex items-center justify-between h-full px-4 md:px-12">
@@ -49,18 +91,20 @@ const SlimHeader = () => {
         {/* Right: FAQs and Email (Hidden on small screens) */}
         <div className="hidden md:flex items-center space-x-4">
           <span className="text-muted-foreground text-sm font-medium">FAQs</span>
-          <Link
-            to="/#quick-faq"
-            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+          <a
+            href="/#quick-faq"
+            onClick={handleClientFaqClick}
+            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
           >
             Client-Related FAQs
-          </Link>
-          <Link
-            to="/#faq"
-            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+          </a>
+          <a
+            href="/#faq"
+            onClick={handleTalentFaqClick}
+            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
           >
             Talent-Related FAQs
-          </Link>
+          </a>
           <a
             href="mailto:careers@huntnhire.co"
             className="flex items-center space-x-1 text-muted-foreground hover:text-primary text-sm font-medium transition-colors"

@@ -11,6 +11,7 @@ import HowItWorks from '@/components/sections/HowItWorks';
 import Clients from '@/components/sections/Clients';
 import QuickFAQ from '@/components/sections/QuickFAQ';
 import FAQ from '@/components/sections/FAQ';
+import SlimHeader from '@/components/sections/SlimHeader';
 
 const Index = () => {
   const location = useLocation();
@@ -62,6 +63,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SlimHeader />
       <Navbar />
       
       <main className="flex-grow">
@@ -70,7 +72,7 @@ const Index = () => {
         <PrecisionPlacement />
         <RolesSection />
         <HowItWorks />
-        <Clients />
+        <Clients id="clients" />
         <div id="quick-faq">
           <QuickFAQ />
         </div>
