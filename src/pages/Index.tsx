@@ -1,7 +1,5 @@
-
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import SlimHeader from '@/components/layout/SlimHeader';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
@@ -22,22 +20,14 @@ const Index = () => {
       if (window.location.hash) {
         const element = document.querySelector(window.location.hash);
         if (element) {
-          // Add offset for the fixed header
-          const headerOffset = 120;
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
+          element.scrollIntoView({ behavior: 'smooth' });
         }
       }
     };
 
     // Trigger smooth scrolling on initial load if there's a hash
     if (location.hash) {
-      setTimeout(handleHashChange, 100); // Small delay to ensure DOM is ready
+      handleHashChange();
     }
 
     window.addEventListener('hashchange', handleHashChange);
@@ -48,24 +38,15 @@ const Index = () => {
   const handleBookCallClick = () => {
     const howItWorksSection = document.querySelector('#how-it-works');
     if (howItWorksSection) {
-      // Add offset for the fixed header
-      const headerOffset = 120;
-      const elementPosition = howItWorksSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SlimHeader />
       <Navbar />
       
-      <main className="flex-grow pt-[120px]">
+      <main className="flex-grow">
         <Hero onBookCallClick={handleBookCallClick} />
         <UnlockGrowth /> 
         <PrecisionPlacement />

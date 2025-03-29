@@ -1,37 +1,24 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Search } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   // Check if on the home page
   const isHomePage = location.pathname === '/';
 
-  // Handle scroll event for navbar transparency and hiding
+  // Handle scroll event for navbar transparency
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      setScrollPosition(currentScrollY);
-      
-      // Hide navbar when scrolling down and show when scrolling up
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      
-      setLastScrollY(currentScrollY);
+      setScrollPosition(window.scrollY);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   // Close mobile menu when path changes
   useEffect(() => {
@@ -40,9 +27,9 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-10 inset-x-0 z-40 transition-all duration-300 ${
-        scrollPosition > 10 ? 'bg-background/90 backdrop-blur-md border-b border-white/5 shadow-lg' : ''
-      } ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        scrollPosition > 10 ? 'bg-background/80 backdrop-blur-md border-b border-white/5 shadow-lg' : ''
+      }`}
     >
       <nav className="container-custom flex items-center justify-between h-16 md:h-20">
         <Link
@@ -53,7 +40,7 @@ const Navbar = () => {
           <img
             src="/lovable-uploads/Hunt&Hire.png"
             alt="Hunt & Hire Logo"
-            className="h-12 md:h-14"
+            className="h-64 md:h-56"
           />
         </Link>
 
@@ -61,47 +48,35 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-1">
           {isHomePage ? (
             <>
-              <a href="#how-it-works" className="nav-link hover-lift">
-                How It Works
+              <a href="#home" className="nav-link hover-lift">
+                Home
               </a>
               <a href="#roles" className="nav-link hover-lift">
-                Our Roles
+                Roles
               </a>
-              <Link to="/careers" className="nav-link hover-lift">
-                Careers
-              </Link>
               <a href="#how-it-works" className="nav-link hover-lift">
-                How To Apply
+                Process
+              </a>
+              <a href="#clients" className="nav-link hover-lift">
+                Clients
+              </a>
+              <a href="#faq" className="nav-link hover-lift">
+                FAQ
               </a>
             </>
-          ) : (
-            <>
-              <Link to="/" className="nav-link hover-lift">
-                Home
-              </Link>
-              <Link to="/careers" className="nav-link hover-lift">
-                Careers
-              </Link>
-              <Link to="/about" className="nav-link hover-lift">
-                About
-              </Link>
-              <Link to="/contact" className="nav-link hover-lift">
-                Contact
-              </Link>
-            </>
-          )}
+          ) : null}
+          <Link to="/about" className="nav-link hover-lift">
+            About
+          </Link>
+          <Link to="/contact" className="nav-link hover-lift">
+            Contact
+          </Link>
           <a
             href={isHomePage ? '#how-it-works' : '/contact'}
             className="btn-primary ml-4 hover-glow"
           >
-            Book a Discovery Call
+            Book a Call
           </a>
-          <button
-            className="ml-4 flex items-center p-2 rounded-md text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Search"
-          >
-            <Search size={20} />
-          </button>
         </div>
 
         {/* Mobile menu button */}
@@ -123,48 +98,35 @@ const Navbar = () => {
         <div className="container-custom py-6 space-y-4 flex flex-col">
           {isHomePage ? (
             <>
-              <a href="#how-it-works" className="nav-link w-full py-3">
-                How It Works
+              <a href="#home" className="nav-link w-full py-3">
+                Home
               </a>
               <a href="#roles" className="nav-link w-full py-3">
-                Our Roles
+                Roles
               </a>
-              <Link to="/careers" className="nav-link w-full py-3">
-                Careers
-              </Link>
               <a href="#how-it-works" className="nav-link w-full py-3">
-                How To Apply
+                Process
+              </a>
+              <a href="#clients" className="nav-link w-full py-3">
+                Clients
+              </a>
+              <a href="#faq" className="nav-link w-full py-3">
+                FAQ
               </a>
             </>
-          ) : (
-            <>
-              <Link to="/" className="nav-link w-full py-3">
-                Home
-              </Link>
-              <Link to="/careers" className="nav-link w-full py-3">
-                Careers
-              </Link>
-              <Link to="/about" className="nav-link w-full py-3">
-                About
-              </Link>
-              <Link to="/contact" className="nav-link w-full py-3">
-                Contact
-              </Link>
-            </>
-          )}
+          ) : null}
+          <Link to="/about" className="nav-link w-full py-3">
+            About
+          </Link>
+          <Link to="/contact" className="nav-link w-full py-3">
+            Contact
+          </Link>
           <a
             href={isHomePage ? '#how-it-works' : '/contact'}
             className="btn-primary mt-4 w-full flex justify-center"
           >
-            Book a Discovery Call
+            Book a Call
           </a>
-          <button
-            className="mt-4 w-full flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Search"
-          >
-            <Search size={20} />
-            <span className="ml-2">Search</span>
-          </button>
         </div>
       </div>
     </header>
