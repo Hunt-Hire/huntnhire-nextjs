@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import AnimatedCard from '../ui/AnimatedCard';
@@ -12,16 +11,36 @@ const QuickFAQ = () => {
 
   const faqs = [
     {
-      question: "What's the cost of hiring a marketing professional?",
-      answer: "Our marketing professionals are available at competitive rates based on their expertise and the scope of work. Typically ranging from $25-$75/hour, with flexible part-time and full-time options available."
+      question: "What does a virtual associate do?",
+      answer: "Our virtual associates are skilled professionals specializing in digital marketing and SaaS roles such as SEO, PPC, graphic design, and more. Tailored to your agency’s needs, they work full-time (40 hours/week), are college-educated, fluent in English, and bring at least two years of relevant experience."
     },
     {
-      question: "How quickly can I hire someone?",
-      answer: "Most clients are matched with their ideal candidate within 48 hours and can start working together immediately after selection. Our streamlined process ensures you get the talent you need without lengthy recruitment cycles."
+      question: "Do you offer part-time virtual associates?",
+      answer: "No, we currently provide only full-time virtual associates, working 40 hours per week to ensure maximum dedication and productivity."
     },
     {
-      question: "What if I'm not satisfied with the marketer?",
-      answer: "We offer a 14-day satisfaction guarantee. If you're not completely satisfied with your hire, we'll quickly match you with a replacement or refund your initial payment. Our pre-vetting process ensures this rarely happens."
+      question: "How do your virtual associates ensure data security?",
+      answer: "Our virtual associates are trained in confidentiality protocols, use secure platforms, and follow industry-standard data protection practices. Their professional experience (minimum two years) ensures a solid grasp of data security principles."
+    },
+    {
+      question: "Why hire a virtual associate?",
+      answer: "Virtual associates offer flexibility, cost-effective scaling, and access to specialized expertise. They help your agency meet business goals efficiently without the overhead costs of traditional in-office staff."
+    },
+    {
+      question: "How will I be charged?",
+      answer: "We provide flexible payment options: bi-weekly auto-billing via credit card or invoiced payments every two weeks."
+    },
+    {
+      question: "How often will I be charged?",
+      answer: "Your first payment covers a full month of service, followed by bi-weekly billing thereafter."
+    },
+    {
+      question: "Is there any long-term commitment involved?",
+      answer: "No, there’s no long-term commitment. You can terminate the agreement with a 15-day written notice."
+    },
+    {
+      question: "What is your replacement policy if I’m not satisfied with an associate’s performance?",
+      answer: "We guarantee a replacement at no extra cost if an associate doesn’t meet your expectations, ensuring you’re always satisfied with the talent provided."
     }
   ];
 
@@ -29,7 +48,7 @@ const QuickFAQ = () => {
     <section id="quick-faq" className="section py-16 bg-secondary/10">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold">Common Questions</h3>
+          <h3 className="text-2xl font-bold">Client-Related FAQs</h3>
         </div>
 
         <div className="max-w-3xl mx-auto">

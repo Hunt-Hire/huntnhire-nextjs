@@ -40,7 +40,7 @@ const RolesSection = () => {
       delay: 300,
     },
     {
-      title: 'Business Support & Management', 
+      title: 'Business Support & Management',
       description: 'Ensure smooth operations with expert business support',
       roles: ['Project Manager', 'Executive Assistant', 'Admin Assistant', 'CSM Support'],
       image: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMSEhUSExIVFRUSGBUQFRUVFRUVFRUXFRUXFhUVFRUYHSggGBolHRUWITEhJSkrLi4uFx8zODMsNygtLi0BCgoKDg0OGhAQGisdHR0rLS0tLSsrLS0tLS0tLS0tLS0tLS0tLS0tLS0tKy0tLS0tKzctLS0tLS0tLS0rLS0tK//AABEIAQMAwgMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAgMEBgcAAQj/xABAEAABAgQDBQYDBwIGAQUAAAABAAIDBBEhBRIxBkFRYXETIjKBkaFSscEHFEJy0eHwI/EVM2KissKSFiQ0Q4L/xAAZAQACAwEAAAAAAAAAAAAAAAABAwACBAX/xAAiEQEBAAICAgIDAQEAAAAAAAAAAQIRAyEEEjFBEyJRMhT/2gAMAwEAAhEDEQA/AB0SM5pLXAgixBXCbVn2ylWOdmoM28/qqh2Kphl7Ta2WOrpKE2lfe1FbCSxBVgP/AHpe/ekz2K7slEPfel33pMdklCCoiRBjklEpZ6HysuEWl4SgCeEy3axA3dqeivUGWDQALBU7AIwZEvaopVW0T7eISuS9m4Tp5Ny4LSCKg7lQp+HkiOaNAVdJzFmAHeeCpE0/M4u4mqPH8hyQwSkEpbgkEJxRBKbcUtybcohtxTLynXJl6gmnFNRjZOlNRxZBFcxiJYqsDVWTGt6rzAoL2i5OUXKI+gZ3ChFNSEOjbMt4K6shhJjQQs8lh91WbzeCZdFD+4lX2dlghhkU6EVVfuJXfcSrV9xCSZJEFW+5FKEkVZfuS77moOgaWl6KWw0TeJzsOA0lzgAN5Nv3KoeM7bZqtg/+Rt6BDY6XuZnmsFS4AcSaKtYvt2YfdhGp9gqDOzr395ziSeJr6fooczENShpaXSyTG2M083ikDgNPPipEjtjFb4qOH83KkPeUuDE4oyaC3bW8P2sl4lAXZHcHaeRRpjg4VBBB3g1WIh5Gtwd6K4VikSCase4DrbzGh81ZVrDmppwQnAtomxaNfQOOhGh/QqwOhobTSA4Jl4U58JRojEdhpFLU1HFlJLU3HbZRFUxoaqvQwrLjTbFV5gUF7RepdF4oj6dgiqdcxMyuil7kjE3IMmIaimGiMwohcnEmDDSTDUmoSSQhaMiMYaCbR4syWhGI40/A0b3u1yt6AEk8kejvoFi32pYuYkx2LT3YLctB8TqF3sGoLfCs7QYy+ZiFznGg8I/bchbIwHE+abeUqBCzGnGysG9pbSImlj81OgyDnAVFxau4jmj+z+BtABIqVb5XC28EjPyJjdNXH4tym6zCJghN9ELmJUsd7LaY+EAjRUrajBKAmirj5G6vn4uorsjKh7S3f/KKHRzBm+F2Vw3X0UzCI3foddD1UydlhkjHjkd6OWthM4fMaOadNRvC0rZzFO1YA495vuNxWVyjaGo/Yq14JHLHNcLfy4KFiStBe1RYrFJlI2YV9QvYrEv2MuIc5iamGWU5zE3Gh2RlCxTMbbYqvQYZJoBc2V0xTDi4FRdmMFzTUJhFnO+hKZIVctB7dnYpFbe65fQkLBoYAGRtgBoFytor3yewm0TrjZNgrnGyzyNdQZ2NQKtzGMBrqVRnFGEg0Wb4thccxCQ8AdCr2dKTW1r/AMcHFd/jY4rPpiVjs/ED6oeZqKDSqqtK0Wex9oaTXQE+yxCfmHRnvjO/+xxcBvpW30COY5OvbCIJ8Xd/UoJM91g6U9kcYGVDnFWbZ7CdHu1Og4BVyTh54jRxIWl4VLVA9Evmz1NHePhu7oxg8CgCsktCQ/DJQjVWCBBsudl3XTnUNMg1QvaHCg+E625WBkNezktmYRyV8IrlXzXPwzDiOGhBqFIg4m4gtdcPFDxRbbnDDCil1N6rDQujx5bxczlx1kPSUmBcO+ny1RyALAcRQ9dx9UCwyMaU4cR9Rojkg8afWqbKTYtuzs6HgXvloerdD7o08LOsKmB2jmE5aPc2oNKGvyKt0GZiwiBE78MkDNvFbCvJIynZ2N6ES1Lhw6kBekJ+Vb3gpje0ynREzh9dyYwiRyTUE0/GR/tKsb4ahNZSYgfn/wCpW36YMq0JosuXrdFyUYCApYumGvUmAk4tGV6JdJB2qiRcAYTW/qjsJqW5qaTVJxTZeGRvWcbR4Y2XJc40aN5W0Y3Nsgw3xIjg1rAXOJ0AAuV817b7QRZ5/a5SyXBIhNNi7/URvPsELOhxt2B4rPmNEt4RYD6pjE3+EcgmWJMw6p9lIsm7PMrFrSuUE+e5XWHhbHNBizDweDTRreQCrWx8vmc88AB80afKu7VvaBxhjUMND57/AEWfP/TXxz9N62KwZaZgjNAmS5vB9adL1CsuzW0MV7jDjNAcNCNCqpsrhD2xHlxe1lSWvY5wee64Nb2b3BhaS4OOYHw0GqnyQe2YhkgA6OA8Ou7Wg5VNNErlxmv6bxb38WNFxKYdDgmI1he61GjfVVaZx+eIp/SgA8aOP1V3iNzQw3SyyzamTe8Rf6jxEaR2bQLEB3eq4VoaaaC6XxfJnJ8IO02Fxo4zPmmvdrQCyoLpcgkHVpylWxmFRuxz542ercsN57RpAHed2lBlvoBU61qomJ4eWkRXCmYZIlL5T+F/lvWuXXTJcfbvQTIuLTUD0sfIo/h8w0mp15gfOlUDE5kcWvhB1N4JB680XkJiE890lptZ/Hqryl3H+FshkRnHia/L91YpTEiWBh0JAB3i9whAhEOv1+iVJOLYoqLXPmhe0i+S8SoF6qfKHvBAJeLSnA3RfDolXhDGdpnelncEPi//ACIH5/8AqUSQXFo2SJBdweP0+q1/TBk0drrLxD4c6KC+4b1yppf2BYMVEpVyBS2gRiTNkqTtoyopDeufGUcOTUR5TZGfLLTMPtrxjvQJUuIY6saLTe1p7rfMg+gWU45MPintCzKKZGbmtY0UDWN3ClFpf2hYI2LiEs98Woj1hOrTu5KEUA0BzFVja3B4cFzqVI/DZup3Gmlr/uq0zC9KPLwswcfhFVHiBPOq2vOyYeVVdcdgmXfzyn5/otIgYWx4rRZrsNVtTudp5E/qtTw2LYLn+Rb7ut42MvHCYkqGCwQfDoWeOORqjWOTGWGSNaH5IHs5iENkYMOrhmqQaHjR2leSVN3E26laRCGg5KHPYaxxqWp12IQ8zGHMC4VBDHltuLwMrfMpyPGoQDvRnSlm6DzGHgigCqmL4ZStRYrTGQmltVWdoIAoUcrcexx1luMPxiAxsQsBylpoK+EjhXcRVLljSmdtuP6OXbSwqxC7i93pooeHl7Q7K7w3pqC3fZbse8Y52c1lVwk3At40/lCnYt6Bu7egkrH0I7teGh8joj0i3QqJtOwwuNnbgaUVgwc98dUHghFsH8Y6pmFI5Fz3Ku7TH/L/ADhWCtlW9pz4PzBaYy0ZhRrC+4LlFhmw6BcgrpNljYIvKGyBSkWwRmTckRqvwngqJNCpodOG7z4qQYgAuqDt1jcUBwhktaKQ6iznOfo0EXFrnkOJTZdQizdCftLxCUa3KXN7UeANFX1428KzqZxNzxRzHNNLkg358RxVlc6WknCGS0xj35mPQOe0u0gwfhPFw/sLxTFYcW0NgY3dW569eqVllN7aOPDrSpTShUR+PKMNy+vL+yEzYA0VZlte46EtkpgiNlrYtNBuqKH6LUMMmiG9FjElMmHEa8fhIPUbx6LUcInwQHA1a4V9Vm8jDvbZ4nJ1YJRsUa4kEi1jVP4VDgF9XX4dd11XcRkmuidoBffQ0JR7ApeE4amulHFwNfJLmM014T2+V4wuYaGgGltK+ymTtC35FV2XgNDKZyDycSSelEsYOX95z4lBcNDi0E8XAa9ChlqQcuPV2Kwpg0Q/F/A5x0AJRGXYAOarP2jYmIElFNaOeOyZxzPtboCT5LNJcspEuUxlrGpjF+1FSwDLlGuoqbqVh8MEtJ0JdAJ/N4T5V9lXxZg5mqNYY7MIkPee+z8zKGg6rrZTU6crHLd7SIDi0+ZaR0Vnw2MDTRVOaJce1bcOoXNGodvPQ6+qn4dMh1KG4tQ2PmOKHzB+10YUWwrxBA5FxLRXd5FG8M8QR4/krkW+tlXNpj4PzBH89lXNonVLPzLV9MtFIeg6Bcuh6DoFygJEtCoEVlHUUVrQlMigJEabEqamA1pcdBU+ixnbHGy+KxkO5YS4kfiiOOoHJXbbvHeyhNhMvEibuDdKnz0G+iomF4SXPc5/ih5rHUFo/spnl9Bhjruq3MyhBJfd5BiGpPdHEneShBj0NgFZ9s4uWISNIrG+goafJVEqmtnW6SDNuNq+llDiXPJLr+iTEFFaQu3ZglHNm8XMNwhuPdJsfhP6IGQnIHiHVTLGWao4ZXHKWNaw2jz1VllMGabg0KznBp8w6V048FoGE44wt8Q9VzspY62FWHDcKyX1RNzUKk8YaRqvZrEifCPMpdo2W07OzjITS5xoAsJ292ifOTBbcQ4RLWN573u5n2HmtKx5rnNqTX5LGcQFI0Tjmd81p8XCb9mXy8rMdGstXAbh8gnoEQtIcLEHMPNJhijXHll9U7kqGniPfgtlYonwogeaw3AHUsNiCdctdRyROWhZiM7B1Fj7quGWLnDn9FfNmMIDQHOJJ4E1CVnNQyZyTdGMNg5Wau3UBReQFCFHyqRLmiHDlus95Pe7HXx7IBjEWrmdVJjxjRA4sfNEb1W3ZVW6HoOgXLyHoOgXiOlUL/HBTVMjHRXVY8Mfinh7qdhmIxHOqTZIaluxmOIlXk97tHX6McWDp3R6pluK5A6KRRsw0vrwNNPNV3FZ0kAMrd1TUEbqaoXHZEc0AvOVtgDoFWryGcZnTFcK7rAcAoLgumW0OtSkk1+SMC14Bcf+X89EmInms1Pl6BNEIxQ0QnpeAbO50C8LVaouD5YEGJuJc3qaAkqud1F+PHdKk4dWhH8Gg3CFyMOgVjwWFdYMq6eMWiQg0CluYmpZ1lIWa04MxODVhWRbV4VkLYzQaRO0z/mhvpUdQW+i2LEYukNoq9/daPKpJ5AAnyVb28w5jYcGEL0Lx1GRmY+ZK2+LvW2Ly9dRlTG1gnr8l7IRh4Xaa9E9FgmESw6E2UIjKa+i2sIwxtDxHFWbBcYDQGutSwO4qpwHUbm36fVF5Bwd3tx168wl5TcNml9l47XirTVSIDroPg8PIDwN/wCymiNQrP8A5yZOTGY39Rz7tUINOSOWI003qyYYQ5qTikC1eC1/k1Nke2ioeg6Bchwm1yH/AE4j7xhUCHUqwybOzbU6C6gSEvSjga7unVe4pMEAMG/VVyvenQwx63T0/ibXAiiFRJgnoE0bJtWkS0trATUrmNqbf2XjBVSPCEVXnZ+iYiapztK+SZpU9UVal4ZLl7w0CpJsOa1babDuxlZSFvAiOPUBg+qg/Z1s81tIj6VFzvNdcoHzVr23YHCBahAiehLP0SeXLqn8GP7RQZWHQ0Viw9lFEhSBziyKGFlWLKujjBSXek4hiLYbSSaUuoMOZoCUjZzDzPTNXCsGAQ5/BztWs58T5cVXDj9qnJnMZtZdk8LcGGaiij4re406w4ZuByLrE+QVA2qxDtpp7R4YRcxvM1uf9o9FsGLRMkJ54NPyWD5sz3u+JxPuujjjMZqOZcrld1FxKTa8UPkVX4kuAcjhc79x5hWuJog+NQ/6ebeNFZSwOZAc0FhGtHMO4kbq8VLwqcDSMrRwPFTJCJmhg620K9fJwnOzgmG7iLtPUKUZVnw6NmbwpuT7nodKVABaQ+nw39tQpjDUrLyTXZfLPta9notqIzNQ6tKr2z7qKzgiivhfbHTD8qq+XNSuRx0JvJclfgJ9awqQfSnA36KDOuq4qbHaWdLUoh7wStP27f0YJXhXpHBLY1MUOwgGiqjRYlSnZl27go+7mboq0sclMwxoDi83LBVjeLiaAnkLn0UeWCsuFYQTDLiPFp03KWhI1fZCVdAkoL3eIhsY11cYgq6vWtuFkPxSZiRY7jEtlJa0bg0aU9dVYMGHbyEAg3axsN35of8ATP8AxUDF5cmj6Uc0BruY/C4fI+Syc29Nnj6mSO2G1oCGzsQmwUrPVIyLHHQ0iGTJYbmqsewkcQX/AHc+GMxsZh/1ho7QeYof/wAlM4fKGK4MHVx+Fu89eH91Mx6SMMw4sIUMFweAOA3ellp4dz9mPybL+oht5OdlKRHbyMo6myxqALLQftXxRphwYLTeKe3I/wBAHdr1J9is+hFa2IqKbIZiv+WURiGyGYw6kIogRhH+WOikpnDm0hN6J6BdREiCEQgzjhqa9dfVQmryK+1ONvX9qoWbSxasExPNupw5opG2ha0XKrGFuykHgg21Dspe3gTTpuS5jJemfk4pvcW07UN+Ieq5ZNVcn+iv4os+1sIMLGjgT9AquQSiWOTUSJEJfQGgoBoBrqhocQlxtpt9rJ6D4mjokg8h5JxgpfefYK21TEfVeQmVK9y1ceqkwIduZp7ohpPwSQMWI1o/EQ39T6LT3Yc1rQALCgHkg32d4XUuikWb/Tb1Pi9qequ0xLquVWxR9g5gsixJcnuu/qtHMWcB5U9CrdNSwiMc2moI9lnceKZePDjD8DgTTe3Rw9CVp8AggOFw4BwPEG4KpO5pbL9buM3Yl0XjjdeMYYjhDbq7fwG8/wA4rn63dOpctTawbJMOQu+NxPk3ut8rV81ZI7QG3FeHMqJhsqGNaxos0U9ErFZnIwkagGi6OOOsdOVnd5bY/tm6s2W1qWAA8q3p5IWAvZuIXxojjcl5v0t9F4UYrTcUqG1tT3r0vdSopUOMaN/MQ3119qqwHSaQut/VLlW0h1Xsw3ugJcxaGOqCFtKbJq8f6RXzOntX1XS5skSprV3xGvloPYBQRuXNgOKD7Y+M8w31oB9EWlD3gfhFUG2sabH4mg+5Cr9xTP4Vherly0gUSXG51SWkVvVe5+SddCBo6utj1CznmGvANdU+/QE8v5800xlXUFhvKcmHXoP7cAiBuH4q9T/PZTsOhVI3/qohbuVs2DkO0mYQIqGkRHdGkU/3ZVZVpuy8h2MFsMi4GZ35jc/p5IpHgpDB3c4/CS0+Rop2XM2oVaMVTHZWrUd2en6YeSTeCHQh/wBPZwHkmp+XzNKDmP2UvEh/E9h9Gur/AMWpNvqdjPbQbHjgKxbKSBoYrhQv0B+Eaeuvoqzg0Dt44qKsZ3ncCfwt+vlzWkycOg06KnDh903yOTr1iS5waKb1XtrMRECA+I7xUIY3nuJR19rrOPtImatA4kNHqtNZIpEsDSp1NyeZ1Trl5D0XjygBiKVEcaxWt+EF56mw+vqpR1UTDRme9/xH2Fh7IgIubWibxV1GNH81UqGzeoONu8I/mqiPHGkLm6jR5/snYYpQeSZdctG5ozHq79h7p2Fd3IKIJS7t3H+BM7WMBgtO8V9LL2XddebSCsKGOJcPkjjOwy+FMXKZ9wK5N1S9oTjdONIGqRDNXAcV5HdR5HkkaaN6SIRpoOaS0VPmvGPolywspEr1zVqP2YSXciRaauZCHRvePzb6LMB4gtq+zyBlk2cXOe7/AHFo9mhFVZZJl4jdxId6gfolSIoXMO7Rcw0dXingO9m8kUQZs0JHH+FVLa95aIUNgJdFc6jRqSMob/yKtuJD+o3mE27DGOitjEVcxpYyujak5iOZsK8BzSssd9G4ZevZOzODiDCaw0LvE88XHX9OgCsDiAOiZZRjb6lJFzV3kFfGaLytt28iVcK6BZPt5NZ5kMHhhj3O/wCa1iaf3SsRxeY7SYiPGmYtHRtvnVSp9GE28pZKZiFEDUazTzslYbCo1dGbWgU2Vh0CgHXWahWL3dDH81KKzR0CGT577TwFfqpEpiJEueZ/YfJS4Io3m75IXI1ea7kUc6p6WRSJEuVNxCFmhM5OPuP2UGArHhMMOsdNfNCXV2lm5oDbhTl6rsIDOS5N/LiV+HJhZdcJOer68Ul5SYHiHM0VDNpsRuikSre6m5i1uA90/K+BUi9eN8QW5bEn/wBnB/J/2Kw1viW07DxqycLkHN9HuCtAWqlUnNRIhxU9UFREWbcCQeFPqpcr4QTuFuZN/qoExBq62nBT3PFABoLKuux+nF9TVLaUwXpTXqwIu0Mz2cvFdwaT7LFoa0n7R53LK5BrEc1vlqfks1BsghTim2ipXjnJcEIo9aypU+EFHhNUmCghicddCsZiZWvPBob6gD6ohMOqUGxt1e7uLhXo0frRGBfgrDjRgO8hTWIfLvr5KcwqIly+qsmHw3llWC+9VyW1Wg7Cww4RAdwYfmpJLdVLdQL+7xuC5X/7oxcr/iwL98/6+WXLyHEyuBGtRcrxy8CAp73VT+Hus4c1GTkg6j6cR8lX6XtSHCjlq32eTFZXL8L3D1o76lZZFF1fvs4j2iM/K/5g/RQV/D6JwzFimAUzMafzipUglImrglP1UfCXd4JbiqwaXnShETBKiTs1kaTwVkUn7RMQzx2QwbQwXHq6w9lWCV7PzZix4kQ73EDoLJp5QBxNSpMMKJDN/ZTiLBFDrSnmGxUVjk+490oIhuN1XMYjViEcCfc/srADdVSadWM/k4j0KMVolJFEWFCpN6JNcpUghJlWvZ7EexzH4qDzuVUZVyfnZhxDGs8ReDbcBWpU+xrQf/UDuC5CWPFBXWgqvEzanTGnBNlcuVRS26JUDxt6rlyA0Siq1/Z+49s78h/5NXLkBaWzRMzXhPl8wuXKVaH8NN08uXKsSkvVd2oiEQ3UO4rlyskZjK6e6ceuXKA5moRJ47oXLkKhqEnonhK5coCANVV57/NifmPzXLlaBkk4eiTCvVyFSJMIorg7AXAkLlykGiznmuq5cuTS3//Z',
@@ -48,55 +48,70 @@ const RolesSection = () => {
     },
   ];
 
+  // Function to navigate to the HowItWorks section (where the calendar is located)
+  const handleCTAClick = () => {
+    const howItWorksSection = document.querySelector('#how-it-works');
+    if (howItWorksSection) {
+      howItWorksSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       id="roles"
-      className="section relative overflow-hidden bg-gradient-to-b from-background to-secondary/10 py-20 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear_gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:20px_20px]"
+      className="section relative overflow-hidden bg-gradient-to-b from-background to-secondary/10 py-24 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]"
     >
       <div className="container-custom relative z-10">
         <div className="text-center mb-20">
-          <div className="inline-block px-5 py-2 mb-6 rounded-full bg-primary/10 border border-primary/20 shadow-md">
-            <p className="text-base font-semibold text-primary">Our Roles</p>
+          <div className="inline-block px-6 py-3 mb-8 rounded-full bg-primary/10 border border-primary/20 shadow-lg">
+            <p className="text-lg font-semibold text-primary">Our Roles</p>
           </div>
-          <h2 className="text-4xl font-bold tracking-tight">Hire a Virtual Assistant For Your Marketing Agency</h2>
-          <p className="mt-4 text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Discover top-tier professionals from Indian/Pakistani heritage ready to transform your business with expertise and dedication.
-          </p>
+          <h2 className="text-5xl md:text-6xl font-bold tracking-tight">Hire a Virtual Assistant For Your Marketing Agency</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {roleCategories.map((category, index) => (
             <div
               key={index}
-              className="group flex flex-col rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden"
+              className="group flex flex-col rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-3 overflow-hidden"
             >
               {/* Image Section with Purple Background */}
-              <div className="relative w-full h-80 bg-gradient-to-br from-purple-600 to-purple-800">
+              <div className="relative w-full h-96 bg-gradient-to-br from-purple-600 to-purple-800">
                 <img
                   src={category.image}
                   alt={`${category.title} Professional`}
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-56 h-72 object-cover rounded-lg transition-transform duration-300 group-hover:scale-105 z-10"
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 h-80 object-cover rounded-xl transition-transform duration-300 group-hover:scale-110 z-10"
                   loading="lazy"
                 />
               </div>
 
-              {/* Content Section with White Background - Use min-h instead of h */}
-              <div className="flex flex-col items-center text-center bg-white w-full p-6 space-y-4 relative z-0 min-h-[160px]">
-                <h3 className="text-2xl font-extrabold text-purple-800">{category.title}</h3>
-                <p className="text-gray-600 leading-relaxed font-medium">{category.description}</p>
+              {/* Content Section with White Background */}
+              <div className="flex flex-col items-center text-center bg-white w-full p-8 space-y-6 relative z-0 min-h-[280px]">
+                <h3 className="text-3xl font-extrabold text-purple-800">{category.title}</h3>
+                <p className="text-lg text-gray-600 leading-relaxed font-medium">{category.description}</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {category.roles.map((role, roleIndex) => (
+                    <span
+                      key={roleIndex}
+                      className="inline-block px-3 py-1 text-sm font-medium text-purple-700 bg-purple-100 rounded-full border border-purple-200 shadow-sm"
+                    >
+                      {role}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <Link
-            to="#book-call"
-            className="btn-primary inline-flex items-center px-6 py-3 text-lg font-semibold rounded-full hover-glow shadow-md transition-transform duration-300 hover:scale-105"
+        <div className="mt-20 text-center">
+          <button
+            onClick={handleCTAClick}
+            className="btn-primary inline-flex items-center px-8 py-4 text-xl font-semibold rounded-full hover-glow shadow-lg transition-transform duration-300 hover:scale-105"
           >
             Find Your Perfect Match Today
-            <MessageSquare size={20} className="ml-3" />
-          </Link>
+            <MessageSquare size={24} className="ml-3" />
+          </button>
         </div>
       </div>
     </section>

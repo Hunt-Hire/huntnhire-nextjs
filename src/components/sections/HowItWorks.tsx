@@ -25,13 +25,13 @@ const HowItWorks = () => {
     {
       number: '02',
       title: 'We Find Perfect Match',
-      description: 'Our specialized recruiters leverage their expertise and global networks to identify and pre-screen top-tier candidates.',
+      description: 'Our specialized recruiters leverage their expertise and global networks to identify and pre-screen top-tier candidates. We’ll provide you with detailed candidate profiles, including video introductions.',
       icon: <Users size={48} className="text-primary" />,
     },
     {
       number: '03',
       title: 'Meet Your Candidate',
-      description: 'Conduct a final interview to select your new team member. We provide comprehensive onboarding support.',
+      description: 'Conduct a final interview to select your new team member. We provide comprehensive onboarding support and ongoing assistance to ensure a successful integration.',
       icon: <Target size={48} className="text-primary" />,
     },
   ];
@@ -47,19 +47,19 @@ const HowItWorks = () => {
 
   return (
     <section
-      id="how-it-works"
-      ref={sectionRef}
-      className="section bg-gradient-to-b from-background to-primary/5 py-24 relative overflow-hidden bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px]"
-    >
+  id="how-it-works"
+  ref={sectionRef}
+  className="section bg-gradient-to-b from-background to-primary/5 py-24 relative overflow-hidden bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:24px_24px] bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22none%22%20stroke%3D%22%23ffffff%22%20stroke-width%3D%221%22%20stroke-opacity%3D%220.1%22%2F%3E%3C%2Fsvg%3E')]"
+>
       <div className="container-custom relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
           <div className="inline-block px-5 py-2 mb-6 rounded-full bg-primary/10 border border-primary/20 shadow-md">
             <p className="text-base font-semibold text-primary">How It Works</p>
           </div>
-          <h2 className="text-4xl font-bold tracking-tight">Skip the Hassle, Scale Your Agency</h2>
+          <h2 className="text-4xl font-bold tracking-tight">How It Works?</h2>
           <p className="mt-4 text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            We handle the entire talent acquisition process so you can focus on growing your business.
+            Skip the resume piles and endless interviews. We handle the entire talent acquisition process so you can focus on scaling your agency.
           </p>
         </div>
 
@@ -146,7 +146,7 @@ const HowItWorks = () => {
           </div>
         </div>
 
-        {/* Updated Calendly Section with Iframe */}
+        {/* Updated Calendar Section with Iframe */}
         <div className="text-center mt-20">
           <h3 className="text-3xl font-bold mb-6">Schedule Your Free Growth Consultation Today</h3>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-12">

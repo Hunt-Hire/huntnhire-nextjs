@@ -89,30 +89,36 @@ const SlimHeader = () => {
 
         {/* Right: FAQs and Email (Hidden on small screens) */}
         <div className="hidden md:flex items-center space-x-4">
-          <span className="text-muted-foreground text-sm font-medium">FAQs</span>
-          <a
-            href="/#quick-faq"
-            onClick={handleClientFaqClick}
-            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
-          >
-            Client-Related FAQs
-          </a>
-          <a
-            href="/#faq"
-            onClick={handleTalentFaqClick}
-            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
-          >
-            Talent-Related FAQs
-          </a>
-          <a
-            href="mailto:careers@huntnhire.co"
-            className="flex items-center space-x-1 text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-            aria-label="Email"
-          >
-            <Mail size={18} />
-            <span>careers@huntnhire.co</span>
-          </a>
-        </div>
+  <span className="text-muted-foreground text-sm font-medium">FAQs</span>
+  <a
+    href="/#quick-faq"
+    onClick={handleClientFaqClick}
+    className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
+  >
+    Client-Related FAQs
+  </a>
+  <a
+    href="/#faq"
+    onClick={handleTalentFaqClick}
+    className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
+  >
+    Talent-Related FAQs
+  </a>
+  <a
+    href="#"
+    className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
+  >
+    Blog
+  </a>
+  <a
+    href="mailto:careers@huntnhire.co"
+    className="flex items-center space-x-1 text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+    aria-label="Email"
+  >
+    <Mail size={18} />
+    <span>careers@huntnhire.co</span>
+  </a>
+</div>
       </div>
     </header>
   );

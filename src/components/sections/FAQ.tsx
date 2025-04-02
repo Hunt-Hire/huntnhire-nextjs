@@ -1,13 +1,12 @@
-
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const FAQ = () => {
-  // Track which FAQ items are open
+  // Track which FAQ items are open, defaulting to the first item
   const [openItems, setOpenItems] = useState<number[]>([0]);
 
   const toggleItem = (index: number) => {
-    setOpenItems((current) => 
+    setOpenItems((current) =>
       current.includes(index)
         ? current.filter((i) => i !== index)
         : [...current, index]
@@ -16,24 +15,20 @@ const FAQ = () => {
 
   const faqItems = [
     {
-      question: "What makes your talent different from other providers?",
-      answer: "Our talent is rigorously vetted not just for technical skills but also for communication abilities, problem-solving approach, and culture fit. We maintain ongoing relationships with our talent pool, ensuring consistent quality and availability for your projects."
+      question: "What does our application process look like?",
+      answer: "Our hiring process is straightforward:\n- Submit Your Application: Upload your PDF resume to hr@huntnhire.co.\n- Initial Screening: If shortlisted, our team will reach out for a quick phone chat.\n- Video Resume: Share a video resume to showcase your personality and skills.\n- Client Interview: Selected candidates will meet the client for a placement interview.\n- Hiring & Onboarding: Congratulations! Complete the formalities and begin your exciting journey with us."
     },
     {
-      question: "How quickly can you scale our team?",
-      answer: "Typically, we can provide vetted candidates within 1-2 weeks. For specialized roles or larger teams, we work with you to develop a custom timeline that ensures quality while meeting your business needs."
+      question: "Where do I send my resume?",
+      answer: "Send a PDF version of your resume to hr@huntnhire.co."
     },
     {
-      question: "Do you offer fixed-price projects or only team augmentation?",
-      answer: "We offer both engagement models. Our fixed-price projects include thorough scoping and detailed milestones, while our team augmentation services provide flexible scaling of your technical capabilities with dedicated talent."
+      question: "Why choose us?",
+      answer: "Work with top-tier US companies, engage with the latest industry trends and strategies, and enjoy the flexibility of remote work from home."
     },
     {
-      question: "What technologies and industries do you specialize in?",
-      answer: "We specialize in modern web and mobile development technologies, including React, Node.js, Python, and native mobile development. Our experience spans fintech, healthcare, e-commerce, and SaaS products, though we're adaptable to various technical challenges."
-    },
-    {
-      question: "How do you ensure quality and communication?",
-      answer: "We implement regular code reviews, maintain transparent project management practices, and schedule recurring check-ins. All our talent undergoes communication assessment, and we provide detailed documentation throughout the engagement."
+      question: "How often will I be paid?",
+      answer: "You’ll be paid bi-weekly."
     }
   ];
 
@@ -44,9 +39,9 @@ const FAQ = () => {
           <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-primary/10 border border-primary/20">
             <p className="text-sm font-medium text-primary">FAQ</p>
           </div>
-          <h2>Frequently Asked Questions</h2>
+          <h2>Talent-Related FAQs</h2>
           <p className="mt-4 text-xl text-muted-foreground max-w-xl mx-auto">
-            Answers to common questions about our services and approach.
+            Answers to common questions for prospective talent.
           </p>
         </div>
 
@@ -76,7 +71,7 @@ const FAQ = () => {
                   openItems.includes(index) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <p className="pb-4 text-muted-foreground">
+                <p className="pb-4 text-muted-foreground whitespace-pre-line">
                   {item.answer}
                 </p>
               </div>
@@ -86,7 +81,7 @@ const FAQ = () => {
 
         <div className="mt-16 text-center">
           <p className="text-muted-foreground mb-6">
-            Have more questions? We're happy to help.
+            Still have questions? We’re happy to help.
           </p>
           <a href="#book-call" className="btn-primary">
             Contact Us
