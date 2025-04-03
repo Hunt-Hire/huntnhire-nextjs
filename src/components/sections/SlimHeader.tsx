@@ -88,8 +88,7 @@ const SlimHeader = () => {
         </div>
 
         {/* Right: FAQs and Email (Hidden on small screens) */}
-        <div className="hidden md:flex items-center space-x-4">
-  <span className="text-muted-foreground text-sm font-medium">FAQs</span>
+        <div className="hidden md:flex items-center space-x-4">  
   <a
     href="/#quick-faq"
     onClick={handleClientFaqClick}

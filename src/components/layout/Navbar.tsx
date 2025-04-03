@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Search, Facebook, Instagram, Youtube, Linkedin, Mail } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Check if on the home page
   const isHomePage = location.pathname === '/';
@@ -15,15 +18,11 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        // Scrolling down, hide the header
         setIsVisible(false);
       } else if (currentScrollY < lastScrollY) {
-        // Scrolling up, show the header
         setIsVisible(true);
       }
-
       setLastScrollY(currentScrollY);
     };
 
@@ -31,9 +30,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  // Close mobile menu when path changes
+  // Close mobile menu and search modal when path changes
   useEffect(() => {
     setIsOpen(false);
+    setIsSearchOpen(false);
   }, [location.pathname]);
 
   // Navigation handlers
@@ -42,7 +42,6 @@ const Navbar = () => {
       window.location.href = '/#how-it-works';
       return;
     }
-    
     const section = document.querySelector('#how-it-works');
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
@@ -54,10 +53,67 @@ const Navbar = () => {
       window.location.href = '/#roles';
       return;
     }
-    
     const section = document.querySelector('#roles');
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Logo click handler to navigate to landing page
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default Link behavior for custom handling
+    if (location.pathname !== '/') {
+      navigate('/'); // Navigate to root if not already on home page
+    } else {
+      // If already on home page, scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  // Search handlers
+  const handleSearchClick = () => {
+    setIsSearchOpen(true);
+  };
+
+  const handleSearchClose = () => {
+    setIsSearchOpen(false);
+    setSearchQuery('');
+  };
+
+  // Static content to search (example, extend this as needed)
+  const searchableContent = [
+    { title: 'How It Works', sectionId: 'how-it-works', keywords: ['discovery call', 'candidate', 'recruiters'] },
+    { title: 'Our Roles', sectionId: 'roles', keywords: ['marketing', 'virtual assistant', 'ppc'] },
+    { title: 'About', path: '/about', keywords: ['company', 'mission', 'team'] },
+    { title: 'Contact', path: '/contact', keywords: ['email', 'support', 'inquiry'] },
+    { title: 'Careers', path: '/careers', keywords: ['jobs', 'hiring', 'apply'] },
+  ];
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      const queryLower = searchQuery.toLowerCase();
+      const match = searchableContent.find((item) =>
+        item.title.toLowerCase().includes(queryLower) ||
+        item.keywords.some((keyword) => keyword.toLowerCase().includes(queryLower))
+      );
+
+      if (match) {
+        if (match.sectionId && location.pathname === '/') {
+          const section = document.querySelector(`#${match.sectionId}`);
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else if (match.path) {
+          navigate(match.path);
+        }
+      } else {
+        alert('No results found. Try a different search term.');
+      }
+      handleSearchClose();
     }
   };
 
@@ -67,44 +123,12 @@ const Navbar = () => {
         isVisible ? 'translate-y-0' : '-translate-y-[100%]'
       }`}
     >
-      {/* Slim Header (for reference, assuming it's above this component) */}
-      {/* <div className="h-10 bg-background/80 backdrop-blur-md border-b border-white/5">
-        <div className="flex items-center justify-between h-full px-4 md:px-12">
-          <div className="flex items-center space-x-4">
-            <a href="https://facebook.com/huntnhire" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Facebook">
-              <Facebook size={18} />
-            </a>
-            <a href="https://instagram.com/huntnhire" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Instagram">
-              <Instagram size={18} />
-            </a>
-            <a href="https://youtube.com/huntnhire" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="YouTube">
-              <Youtube size={18} />
-            </a>
-            <a href="https://linkedin.com/company/huntnhire" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors" aria-label="LinkedIn">
-              <Linkedin size={18} />
-            </a>
-          </div>
-          <div className="hidden md:flex items-center space-x-4">
-            <span className="text-muted-foreground text-sm font-medium">FAQs</span>
-            <a href="/about/#client-faqs" className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors">
-              Client-Related FAQs
-            </a>
-            <a href="/about/#talent-faqs" className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors">
-              Talent-Related FAQs
-            </a>
-            <a href="mailto:careers@huntnhire.co" className="flex items-center space-x-1 text-muted-foreground hover:text-primary text-sm font-medium transition-colors" aria-label="Email">
-              <Mail size={18} />
-              <span>careers@huntnhire.co</span>
-            </a>
-          </div>
-        </div>
-      </div> */}
-
       {/* Navbar */}
       <nav className="flex items-center justify-between h-16 md:h-20 bg-background/80 backdrop-blur-md border-b border-white/5 w-full px-4 md:px-12">
         {/* Left: Logo */}
         <Link
           to="/"
+          onClick={handleLogoClick}
           className="flex items-center hover:opacity-90 transition-opacity"
           aria-label="Home"
         >
@@ -138,13 +162,13 @@ const Navbar = () => {
           >
             Book a Discovery Call
           </a>
-          <a
-            href="#"
+          <button
+            onClick={handleSearchClick}
             className="ml-4 text-muted-foreground hover:text-primary transition-colors"
             aria-label="Search"
           >
             <Search size={20} />
-          </a>
+          </button>
         </div>
 
         {/* Mobile menu button */}
@@ -187,6 +211,41 @@ const Navbar = () => {
           </a>
         </div>
       </div>
+
+      {/* Search Modal */}
+      {isSearchOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-background rounded-lg p-6 w-full max-w-md mx-4 shadow-xl border border-white/10">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-xl font-semibold text-foreground">Search</h3>
+              <button
+                onClick={handleSearchClose}
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Close search"
+              >
+                <X size={24} />
+              </button>
+            </div>
+            <form onSubmit={handleSearchSubmit} className="flex items-center gap-2 mb-4">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search for roles, pages, or info..."
+                className="w-full p-3 rounded-md bg-secondary/20 text-foreground border border-white/10 focus:outline-none focus:ring-2 focus:ring-primary"
+                autoFocus
+              />
+              <button
+                type="submit"
+                className="btn-primary p-3 rounded-md hover-glow"
+                aria-label="Submit search"
+              >
+                <Search size={20} />
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
