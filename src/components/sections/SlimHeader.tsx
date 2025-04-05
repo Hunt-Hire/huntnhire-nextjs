@@ -1,45 +1,47 @@
-import { Facebook, Instagram, Youtube, Linkedin, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Facebook, Instagram, Youtube, Linkedin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SlimHeader = () => {
   const handleClientFaqClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (window.location.pathname !== '/') {
-      window.location.href = '/#quick-faq';
+    if (window.location.pathname !== "/") {
+      window.location.href = "/#quick-faq";
       return;
     }
-    
-    const section = document.querySelector('#quick-faq');
+
+    const section = document.querySelector("#quick-faq");
     if (section) {
       // Account for fixed header height
       const headerOffset = 104;
       const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
 
   const handleTalentFaqClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (window.location.pathname !== '/') {
-      window.location.href = '/#faq';
+    if (window.location.pathname !== "/") {
+      window.location.href = "/#faq";
       return;
     }
-    
-    const section = document.querySelector('#faq');
+
+    const section = document.querySelector("#faq");
     if (section) {
       // Account for fixed header height
       const headerOffset = 104;
       const elementPosition = section.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
       window.scrollTo({
         top: offsetPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   };
@@ -88,36 +90,43 @@ const SlimHeader = () => {
         </div>
 
         {/* Right: FAQs and Email (Hidden on small screens) */}
-        <div className="hidden md:flex items-center space-x-4">  
-  <a
-    href="/#quick-faq"
-    onClick={handleClientFaqClick}
-    className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
-  >
-    Client-Related FAQs
-  </a>
-  <a
-    href="/#faq"
-    onClick={handleTalentFaqClick}
-    className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
-  >
-    Talent-Related FAQs
-  </a>
-  <a
-    href="#"
-    className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
-  >
-    Blog
-  </a>
-  <a
-    href="mailto:careers@huntnhire.co"
-    className="flex items-center space-x-1 text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
-    aria-label="Email"
-  >
-    <Mail size={18} />
-    <span>careers@huntnhire.co</span>
-  </a>
-</div>
+        <div className="hidden md:flex items-center space-x-4">
+          <a
+            href="/#"
+            onClick={handleClientFaqClick}
+            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
+          >
+            FAQs
+          </a>
+          {/* <a
+            href="/#quick-faq"
+            onClick={handleClientFaqClick}
+            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
+          >
+            Client-Related FAQs
+          </a>
+          <a
+            href="/#faq"
+            onClick={handleTalentFaqClick}
+            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
+          >
+            Talent-Related FAQs
+          </a> */}
+          <a
+            href="#"
+            className="text-muted-foreground hover:text-primary text-sm font-medium transition-colors cursor-pointer"
+          >
+            Blog
+          </a>
+          <a
+            href="mailto:careers@huntnhire.co"
+            className="flex items-center space-x-1 text-muted-foreground hover:text-primary text-sm font-medium transition-colors"
+            aria-label="Email"
+          >
+            <Mail size={18} />
+            <span>hr@huntnhire.co</span>
+          </a>
+        </div>
       </div>
     </header>
   );

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const FAQ = () => {
   // Track which FAQ items are open, defaulting to the first item
@@ -16,29 +16,28 @@ const FAQ = () => {
   const faqItems = [
     {
       question: "What does our application process look like?",
-      answer: "Our hiring process is straightforward:\n- Submit Your Application: Upload your PDF resume to hr@huntnhire.co.\n- Initial Screening: If shortlisted, our team will reach out for a quick phone chat.\n- Video Resume: Share a video resume to showcase your personality and skills.\n- Client Interview: Selected candidates will meet the client for a placement interview.\n- Hiring & Onboarding: Congratulations! Complete the formalities and begin your exciting journey with us."
+      answer:
+        "Our hiring process is straightforward:\n- Submit Your Application: Upload your PDF resume to hr@huntnhire.co.\n- Initial Screening: If shortlisted, our team will reach out for a quick phone chat.\n- Video Resume: Share a video resume to showcase your personality and skills.\n- Client Interview: Selected candidates will meet the client for a placement interview.\n- Hiring & Onboarding: Congratulations! Complete the formalities and begin your exciting journey with us.",
     },
     {
       question: "Where do I send my resume?",
-      answer: "Send a PDF version of your resume to hr@huntnhire.co."
+      answer: "Send a PDF version of your resume to hr@huntnhire.co.",
     },
     {
       question: "Why choose us?",
-      answer: "Work with top-tier US companies, engage with the latest industry trends and strategies, and enjoy the flexibility of remote work from home."
+      answer:
+        "Work with top-tier US companies, engage with the latest industry trends and strategies, and enjoy the flexibility of remote work from home.",
     },
     {
       question: "How often will I be paid?",
-      answer: "You’ll be paid bi-weekly."
-    }
+      answer: "You’ll be paid bi-weekly.",
+    },
   ];
 
   return (
     <section id="faq" className="section">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1.5 mb-4 rounded-full bg-primary/10 border border-primary/20">
-            <p className="text-sm font-medium text-primary">FAQ</p>
-          </div>
           <h2>Talent-Related FAQs</h2>
           <p className="mt-4 text-xl text-muted-foreground max-w-xl mx-auto">
             Answers to common questions for prospective talent.
@@ -47,7 +46,7 @@ const FAQ = () => {
 
         <div className="max-w-3xl mx-auto">
           {faqItems.map((item, index) => (
-            <div 
+            <div
               key={index}
               className="mb-4 border-b border-white/5 last:border-0 pb-4 last:pb-0"
             >
@@ -65,10 +64,12 @@ const FAQ = () => {
                   )}
                 </span>
               </button>
-              
-              <div 
+
+              <div
                 className={`overflow-hidden transition-all duration-300 ${
-                  openItems.includes(index) ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  openItems.includes(index)
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
                 }`}
               >
                 <p className="pb-4 text-muted-foreground whitespace-pre-line">
