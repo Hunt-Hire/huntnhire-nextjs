@@ -1,11 +1,10 @@
-
-import { ReactNode, useEffect, useRef, useState } from 'react';
-import { cn } from '@/lib/utils';
+import { ReactNode, useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 interface AnimatedCardProps {
   children: ReactNode;
   className?: string;
-  animationDirection?: 'up' | 'down' | 'left' | 'right' | 'scale';
+  animationDirection?: "up" | "down" | "left" | "right" | "scale";
   animationDelay?: number;
   hoverEffect?: boolean;
 }
@@ -13,7 +12,7 @@ interface AnimatedCardProps {
 const AnimatedCard = ({
   children,
   className,
-  animationDirection = 'up',
+  animationDirection = "up",
   animationDelay = 0,
   hoverEffect = true,
 }: AnimatedCardProps) => {
@@ -45,21 +44,21 @@ const AnimatedCard = ({
   }, []);
 
   const getAnimationClass = () => {
-    if (!isVisible) return 'opacity-0';
-    
+    if (!isVisible) return "opacity-0";
+
     switch (animationDirection) {
-      case 'up':
-        return 'animate-fade-in-up';
-      case 'down':
-        return 'animate-fade-in-down';
-      case 'left':
-        return 'animate-fade-in-left';
-      case 'right':
-        return 'animate-fade-in-right';
-      case 'scale':
-        return 'animate-scale-in';
+      case "up":
+        return "animate-fade-in-up";
+      case "down":
+        return "animate-fade-in-down";
+      case "left":
+        return "animate-fade-in-left";
+      case "right":
+        return "animate-fade-in-right";
+      case "scale":
+        return "animate-scale-in";
       default:
-        return 'animate-fade-in-up';
+        return "animate-fade-in-up";
     }
   };
 
@@ -68,9 +67,10 @@ const AnimatedCard = ({
       ref={cardRef}
       style={{ animationDelay: `${animationDelay}ms` }}
       className={cn(
-        'glass-card p-6 md:p-8 opacity-0',
+        "glass-card p-6 md:p-8 opacity-0",
         getAnimationClass(),
-        hoverEffect && 'transition-transform duration-300 hover:translate-y-[-5px]',
+        hoverEffect &&
+          "transition-transform duration-300 hover:translate-y-[-5px]",
         className
       )}
     >

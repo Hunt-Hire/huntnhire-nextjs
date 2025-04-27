@@ -35,11 +35,11 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="faq" className="section">
+    <section id="faq" className="bg-[#F7FFF7]">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2>Talent-Related FAQs</h2>
-          <p className="mt-4 text-xl text-muted-foreground max-w-xl mx-auto">
+          <h2 className="text-[#7960BE]">Talent-Related FAQs</h2>
+          <p className="mt-4 text-xl text-[#191919] max-w-xl mx-auto">
             Answers to common questions for prospective talent.
           </p>
         </div>
@@ -55,7 +55,9 @@ const FAQ = () => {
                 className="w-full flex justify-between items-center py-4 text-left focus:outline-none"
                 aria-expanded={openItems.includes(index)}
               >
-                <h3 className="text-lg font-medium">{item.question}</h3>
+                <h3 className="text-lg font-medium text-[#7960BE]">
+                  {item.question}
+                </h3>
                 <span className="flex-shrink-0 ml-2">
                   {openItems.includes(index) ? (
                     <ChevronUp size={20} className="text-primary" />
@@ -72,7 +74,7 @@ const FAQ = () => {
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="pb-4 text-muted-foreground whitespace-pre-line">
+                <p className="pb-4 text-[#191919] whitespace-pre-line">
                   {item.answer}
                 </p>
               </div>
@@ -81,10 +83,13 @@ const FAQ = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-muted-foreground mb-6">
+          <p className="text-[#191919] mb-6">
             Still have questions? We’re happy to help.
           </p>
-          <a href="#book-call" className="btn-primary">
+          <a
+            href="#book-call"
+            className="bg-[#7960BE] text-[#F7FFF7] text-sm py-2 px-3 rounded-md"
+          >
             Contact Us
           </a>
         </div>

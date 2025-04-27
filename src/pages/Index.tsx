@@ -18,7 +18,7 @@ const Index = () => {
   const Divider = () => {
     return (
       <div
-        className="w-full h-px max-w-6xl mx-auto py-1"
+        className="w-full h-[2px] max-w-6xl mx-auto my-1"
         style={{
           backgroundImage:
             "linear-gradient(90deg, rgba(149, 131, 198, 0) 1.46%, rgba(149, 131, 198, 0.6) 40.83%, rgba(149, 131, 198, 0.3) 65.57%, rgba(149, 131, 198, 0) 107.92%)",
@@ -81,25 +81,19 @@ const Index = () => {
 
       <main className="flex-grow">
         <Hero onBookCallClick={handleBookCallClick} />
-        <Divider />
 
         <UnlockGrowth />
-        <Divider />
 
         <RolesSection />
-        <Divider />
 
         <PrecisionPlacement />
-        <Divider />
 
         <HowItWorks />
-        {/* <Divider /> */}
 
         <Clients id="clients" />
         <div id="quick-faq">
           <QuickFAQ />
         </div>
-        <Divider />
         <div id="faq">
           <FAQ />
         </div>

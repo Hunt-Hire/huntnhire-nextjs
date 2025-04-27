@@ -152,7 +152,10 @@ const Navbar = () => {
       }`}
     >
       {/* Navbar */}
-      <nav className="flex items-center justify-between h-16 md:h-20 bg-background/80 backdrop-blur-md border-b border-white/5 w-full px-4 md:px-12">
+      <nav
+        className="flex items-center justify-between h-16 md:h-20
+       bg-[#F7FFF7]/80 backdrop-blur-md border-b border-white/5 w-full px-4 md:px-12"
+      >
         {/* Left: Logo */}
         <Link
           to="/"
@@ -168,7 +171,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-1">
+        <div className="hidden md:flex items-center space-x-1 text-[#7960BE]">
           <a
             onClick={handleHowItWorksClick}
             className="nav-link hover-lift cursor-pointer"
@@ -192,7 +195,7 @@ const Navbar = () => {
           </Link>
           <a
             onClick={handleHowItWorksClick}
-            className="btn-primary ml-4 hover-glow cursor-pointer"
+            className="bg-[#0DAB96] text-[#F7FFF7] rounded-md py-2 px-3 text-sm ml-4 hover-glow cursor-pointer"
           >
             Book a Discovery Call
           </a>
@@ -217,7 +220,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden absolute top-[106px] inset-x-0 bg-background/95 backdrop-blur-lg border-b border-white/5 shadow-lg transition-all duration-300 ease-in-out w-full ${
+        className={`md:hidden absolute top-[90px] inset-x-0 bg-[#F7FFF7]/80 backdrop-blur-lg border-b border-white/5 shadow-lg transition-all duration-300 ease-in-out w-full ${
           isOpen
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-8 pointer-events-none"
@@ -226,28 +229,28 @@ const Navbar = () => {
         <div className="py-6 space-y-4 flex flex-col px-4 md:px-12">
           <a
             onClick={handleHowItWorksClick}
-            className="nav-link w-full py-3 cursor-pointer"
+            className="nav-link w-full py-3 cursor-pointer text-[#7960BE]"
           >
             How It Works
           </a>
           <a
             onClick={handleRolesClick}
-            className="nav-link w-full py-3 cursor-pointer"
+            className="nav-link w-full py-3 cursor-pointer text-[#7960BE]"
           >
             Our Roles
           </a>
-          <Link to="/about" className="nav-link w-full py-3">
+          <Link to="/about" className="nav-link w-full py-3 text-[#7960BE]">
             About
           </Link>
-          <Link to="/contact" className="nav-link w-full py-3">
+          <Link to="/contact" className="nav-link w-full py-3 text-[#7960BE]">
             Contact
           </Link>
-          <Link to="/careers" className="nav-link w-full py-3">
+          <Link to="/careers" className="nav-link w-full py-3 text-[#7960BE]">
             Careers
           </Link>
           <a
             onClick={handleHowItWorksClick}
-            className="btn-primary mt-4 w-full flex justify-center cursor-pointer"
+            className="bg-[#0DAB96] text-[#F7FFF7] rounded-md py-2 px-3 text-sm mt-4 w-full flex justify-center cursor-pointer"
           >
             Book a Discovery Call
           </a>

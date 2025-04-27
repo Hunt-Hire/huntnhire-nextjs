@@ -61,15 +61,15 @@ const Clients = ({ id }: ClientsProps) => {
     <section
       id={id || "clients"}
       ref={sectionRef}
-      className="section relative overflow-hidden"
+      className="bg-[#F7FFF7] relative overflow-hidden"
     >
       <div className="container-custom">
         <div className="text-center mb-16">
-          <div className="inline-block px-6 py-3 mb-8 rounded-md btn-primary shadow-lg">
-            <p className="text-lg font-semibold text-white">Clients Say</p>
+          <div className="inline-block px-6 py-3 mb-8 rounded-md bg-[#7960BE] shadow-lg">
+            <p className="text-lg font-semibold">Clients Say</p>
           </div>
-          <h2>Success Stories</h2>
-          <p className="mt-4 text-xl text-muted-foreground max-w-xl mx-auto">
+          <h2 className="text-[#7960BE]">Success Stories</h2>
+          <p className="mt-4 text-xl text-[#191919] max-w-xl mx-auto">
             Here's what our clients say about working with Hunt & Hire.
           </p>
         </div>
@@ -81,7 +81,7 @@ const Clients = ({ id }: ClientsProps) => {
             className="relative hover-glow"
           >
             <div className="absolute top-4 right-8">
-              <Quote size={80} className="text-[#7960be]/10" />
+              <Quote size={80} className="text-[#0DAB96]/20" />
             </div>
             <div className="relative">
               {testimonials.map((testimonial, index) => (
@@ -99,11 +99,13 @@ const Clients = ({ id }: ClientsProps) => {
                         <Star
                           key={i}
                           size={20}
-                          className="fill-[#7960be] text-[#7960be]"
+                          className="fill-[#0DAB96]/70 text-[#0DAB96]"
                         />
                       ))}
                     </div>
-                    <p className="text-xl italic">{testimonial.text}</p>
+                    <p className="text-xl text-[#191919] italic">
+                      {testimonial.text}
+                    </p>
                     <div className="flex items-center space-x-4 mt-6">
                       <div className="w-12 h-12 rounded-full overflow-hidden hover-scale">
                         <img
@@ -113,8 +115,10 @@ const Clients = ({ id }: ClientsProps) => {
                         />
                       </div>
                       <div>
-                        <p className="font-semibold">{testimonial.name}</p>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="font-semibold text-[#191919]">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-sm text-[#191919]">
                           {testimonial.role}
                         </p>
                       </div>

@@ -64,11 +64,11 @@ const QuickFAQ = () => {
   ];
 
   return (
-    <section id="quick-faq" className="section py-16">
-      <div className="container-custom">
+    <section id="quick-faq" className="bg-[#7960BE] py-16">
+      <div className="">
         <div className="text-center mb-16">
-          <div className="inline-block px-6 py-3 mb-8 rounded-md btn-primary shadow-lg">
-            <p className="text-lg font-semibold text-white">FAQs</p>
+          <div className="inline-block px-6 py-3 mb-8 rounded-md bg-white shadow-lg">
+            <p className="text-lg font-semibold text-[#7960BE]">FAQs</p>
           </div>
           <h2>Agency-Related FAQs</h2>
           <p className="mt-4 text-xl text-muted-foreground max-w-xl mx-auto">
