@@ -30,7 +30,7 @@ const UnlockGrowth = () => {
         <div className="text-center mb-20">
           <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-center text-[#7960BE]">
             Unlock Exponential Growth: Access Top-Tier Global{" "}
-            <span className="text-[#0DAB76]/70">
+            <span className="relative inline-block text-[#0DAB76]/70">
               <Typewriter
                 words={["Marketing", "SaaS"]}
                 loop={0}
@@ -40,6 +40,8 @@ const UnlockGrowth = () => {
                 delaySpeed={1500}
                 cursor={false}
               />
+              {/* Ghost word to prevent layout shift */}
+              <span className="invisible absolute top-0 left-0">Marketing</span>
             </span>{" "}
             Talent
           </h2>

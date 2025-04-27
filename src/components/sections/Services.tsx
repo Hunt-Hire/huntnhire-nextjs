@@ -72,25 +72,31 @@ const RolesSection = () => {
       bg-[#7960BE]"
     >
       <div className="container-custom relative z-10">
-        <div className="text-center mb-20">
-          <div className="inline-block px-6 py-3 mb-8 rounded-md bg-white shadow-lg">
-            <p className="text-lg font-semibold text-[#7960BE]">Our Roles</p>
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-block px-6 py-3 mb-8 rounded-md bg-white shadow-lg">
+              <p className="text-lg font-semibold text-[#7960BE]">Our Roles</p>
+            </div>
+            <h2 className="text-2xl md:text-5xl font-bold tracking-tight text-center text-white">
+              Hire a Virtual Associate For Your{" "}
+              <span className="relative inline-block text-[#F7FFF7] bg-[#0DAB76]/70 px-3 rounded-md">
+                <Typewriter
+                  words={["Marketing", "SaaS", "Web"]}
+                  loop={0}
+                  cursorStyle="_"
+                  typeSpeed={90}
+                  deleteSpeed={50}
+                  delaySpeed={1500}
+                  cursor={false}
+                />
+                {/* Ghost word to reserve space */}
+                <span className="invisible absolute top-0 left-0">
+                  Marketing
+                </span>
+              </span>{" "}
+              Agency
+            </h2>
           </div>
-          <h2 className="text-2xl md:text-5xl font-bold tracking-tight text-center text-white">
-            Hire a Virtual Associate For Your{" "}
-            <span className="text-[#F7FFF7] bg-[#0DAB76]/70 px-3 rounded-md">
-              <Typewriter
-                words={["Marketing", "SaaS", "Web"]}
-                loop={0}
-                cursorStyle="_"
-                typeSpeed={90}
-                deleteSpeed={50}
-                delaySpeed={1500}
-                cursor={false}
-              />
-            </span>{" "}
-            Agency
-          </h2>
         </div>
 
         {/* Card */}
