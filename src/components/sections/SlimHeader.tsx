@@ -124,7 +124,7 @@ const SlimHeader = () => {
             aria-label="Email"
           >
             <Mail size={18} />
-            <span>hr@huntnhire.co</span>
+            <span>admin@huntnhire.co</span>
           </a>
         </div>
       </div>

@@ -184,9 +184,9 @@ const Navbar = () => {
           >
             Our Roles
           </a>
-          <Link to="/about" className="nav-link hover-lift">
+          {/* <Link to="/about" className="nav-link hover-lift">
             About
-          </Link>
+          </Link> */}
           {/* <Link to="/contact" className="nav-link hover-lift">
             Contact
           </Link> */}
@@ -239,9 +239,9 @@ const Navbar = () => {
           >
             Our Roles
           </a>
-          <Link to="/about" className="nav-link w-full py-3 text-[#7960BE]">
+          {/* <Link to="/about" className="nav-link w-full py-3 text-[#7960BE]">
             About
-          </Link>
+          </Link> */}
           <Link to="/contact" className="nav-link w-full py-3 text-[#7960BE]">
             Contact
           </Link>
