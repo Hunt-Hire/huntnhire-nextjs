@@ -82,7 +82,7 @@ const FAQ = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <p className="text-[#191919] mb-6">
             Still have questions? We’re happy to help.
           </p>
@@ -92,7 +92,7 @@ const FAQ = () => {
           >
             Contact Us
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

@@ -45,7 +45,7 @@ const UnlockGrowth = () => {
             </span>{" "}
             Talent
           </h2>
-          <p className="text-xl text-muted-foreground max-w-6xl mx-auto leading-relaxed animate-slide-up animation-delay-200 text-[#191919]">
+          <p className="text-xl max-w-6xl mx-auto leading-relaxed animate-slide-up animation-delay-200 text-[#191919]">
             Stop growth bottlenecks. Access skilled global talent, integrate
             seamlessly, and drive your agency's success.
           </p>
@@ -56,7 +56,7 @@ const UnlockGrowth = () => {
           <h3 className="text-3xl md:text-4xl font-semibold text-primary mb-6 animate-slide-up animation-delay-300 text-[#7960BE]">
             Don’t Let Talent Gaps Stifle Your Agency’s Momentum
           </h3>
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-slide-up animation-delay-400 text-[#191919]">
+          <p className="text-xl max-w-4xl mx-auto leading-relaxed animate-slide-up animation-delay-400 text-[#191919]">
             Lost revenue and burnout from hiring delays? Our streamlined process
             delivers vetted global talent, letting you focus on scaling and
             exceeding growth goals.
@@ -83,7 +83,7 @@ const UnlockGrowth = () => {
                 <h4 className="text-2xl md:text-3xl font-semibold text-[#0DAB76]/70 mb-4 pl-10 md:pl-8">
                   {advantage.title}
                 </h4>
-                <p className="text-lg text-gray-400 leading-relaxed pl-6 md:pl-8 text-center md:text-left text-[#191919]">
+                <p className="text-lg leading-relaxed pl-6 md:pl-8 text-center md:text-left text-[#191919]">
                   {advantage.description}
                 </p>
               </div>
@@ -93,7 +93,7 @@ const UnlockGrowth = () => {
 
         {/* Conclusion */}
         <div className="text-center">
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-slide-up animation-delay-600 text-[#191919]">
+          <p className="text-xl max-w-4xl mx-auto leading-relaxed animate-slide-up animation-delay-600 text-[#191919]">
             If you are ready to remove the limitations of local hiring and
             access a world of qualified professionals, then we are ready to
             help. We are dedicated to providing your agency with the talent

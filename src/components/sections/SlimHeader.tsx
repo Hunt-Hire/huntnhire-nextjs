@@ -69,7 +69,7 @@ const SlimHeader = () => {
           >
             <Instagram size={18} />
           </a>
-          <a
+          {/* <a
             href="https://youtube.com/huntnhire"
             target="_blank"
             rel="noopener noreferrer"
@@ -77,7 +77,7 @@ const SlimHeader = () => {
             aria-label="YouTube"
           >
             <Youtube size={18} />
-          </a>
+          </a> */}
           <a
             href="https://linkedin.com/company/huntnhire"
             target="_blank"

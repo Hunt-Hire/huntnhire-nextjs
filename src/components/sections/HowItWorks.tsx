@@ -96,7 +96,7 @@ const HowItWorks = () => {
               <h3 className="text-2xl font-extrabold text-[#0DAB76]/70 mb-4">
                 {step.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed text-[#191919]">
+              <p className="leading-relaxed text-[#191919]">
                 {step.description}
               </p>
             </AnimatedCard>

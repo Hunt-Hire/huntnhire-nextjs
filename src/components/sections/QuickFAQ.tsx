@@ -71,7 +71,7 @@ const QuickFAQ = () => {
             <p className="text-lg font-semibold text-[#7960BE]">FAQs</p>
           </div>
           <h2>Agency-Related FAQs</h2>
-          <p className="mt-4 text-xl text-muted-foreground max-w-xl mx-auto">
+          <p className="mt-4 text-xl text-[#191919] max-w-xl mx-auto">
             Answers to common questions for our clients.
           </p>
         </div>
@@ -104,7 +104,7 @@ const QuickFAQ = () => {
                     : "max-h-0 opacity-0"
                 }`}
               >
-                <p className="pb-4 text-muted-foreground whitespace-pre-line">
+                <p className="pb-4 text-[#191919] whitespace-pre-line">
                   {item.answer}
                 </p>
               </div>

@@ -106,9 +106,6 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
                   </React.Fragment>
                 ))}
               </motion.span>
-              {isTypingComplete && (
-                <span className="inline-block w-2 h-6 bg-white ml-2 animate-blink" />
-              )}
             </h1>
 
             <p className="text-gray-200 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
