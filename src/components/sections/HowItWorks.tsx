@@ -1,14 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import AnimatedCard from "../ui/AnimatedCard";
-import {
-  ArrowRight,
-  Calendar,
-  Users,
-  Target,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
-import { Link } from "react-router-dom";
+import { Calendar, Users, Target } from "lucide-react";
 
 interface ProcessStep {
   number: string;
@@ -20,7 +12,6 @@ interface ProcessStep {
 const HowItWorks = () => {
   const [activeStep, setActiveStep] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
-  const sliderRef = useRef<HTMLDivElement>(null);
 
   const steps: ProcessStep[] = [
     {
@@ -119,11 +110,9 @@ const HowItWorks = () => {
           >
             <div className="relative w-full h-[1000px] rounded-lg overflow-hidden">
               <iframe
-                src="https://calendly.com/hassaan-huntnhire/new-meeting"
-                className="w-full h-full border-0"
-                title="Schedule a Discovery Call with Hunt & Hire"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                src="https://api.leadconnectorhq.com/widget/booking/VLEtHOy9DFEN0qAxh07w"
+                className="w-full h-full border-none overflow-hidden"
+                id="LOyiwv4mey6avrQq98vm_1746482335242"
               />
             </div>
           </section>

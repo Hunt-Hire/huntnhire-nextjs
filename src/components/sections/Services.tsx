@@ -2,6 +2,7 @@ import { MessageSquare } from "lucide-react";
 import { Typewriter } from "react-simple-typewriter";
 import e1 from "@/assets/images/e1.jpg";
 import e2 from "@/assets/images/e2.jpg";
+import e3 from "@/assets/images/e3.jpg";
 
 interface RoleCategory {
   title: string;
@@ -36,8 +37,7 @@ const RolesSection = () => {
         "Client Success Manager",
         "Executive Assistant",
       ],
-      image:
-        "https://media.licdn.com/dms/image/v2/D4D03AQHNYRNhu3ariQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1695930629110?e=2147483647&v=beta&t=GCKZLeA0Rmv0-eP7A77jldpLD4IuwFEh1OaUqZ4nAfU",
+      image: e2,
       delay: 100,
     },
 
@@ -51,7 +51,7 @@ const RolesSection = () => {
         "Full Stack Developer",
         "Web Designer",
       ],
-      image: e2,
+      image: e3,
       delay: 300,
     },
   ];
