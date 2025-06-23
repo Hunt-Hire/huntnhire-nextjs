@@ -64,8 +64,8 @@ const QuickFAQ = () => {
   ];
 
   return (
-    <section id="quick-faq" className="bg-[#7960BE] py-16">
-      <div className="">
+    <section id="quick-faq" className="bg-[#7960BE] py-16 ">
+      <div className="container-custom">
         <div className="text-center mb-16">
           <div className="inline-block px-6 py-3 mb-8 rounded-md bg-white shadow-lg">
             <p className="text-lg font-semibold text-[#7960BE]">FAQs</p>
