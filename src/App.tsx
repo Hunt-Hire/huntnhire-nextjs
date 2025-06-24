@@ -14,23 +14,26 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          {/* <Route path="/contact" element={<Contact />} /> */}
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  // <QueryClientProvider client={queryClient}>
+  //   <TooltipProvider>
+  //     <Toaster />
+  //     <Sonner />
+  //     <BrowserRouter>
+  //       <Routes>
+  //         <Route path="/" element={<Index />} />
+  //         <Route path="/about" element={<About />} />
+  //         {/* <Route path="/contact" element={<Contact />} /> */}
+  //         <Route path="/careers" element={<Careers />} />
+  //         <Route path="/privacy" element={<Privacy />} />
+  //         <Route path="/terms" element={<Terms />} />
+  //         <Route path="*" element={<NotFound />} />
+  //       </Routes>
+  //     </BrowserRouter>
+  //   </TooltipProvider>
+  // </QueryClientProvider>
+  <div className="h-screen w-full flex justify-center items-center">
+    <h1>Show me your NIC bro</h1>
+  </div>
 );
 
 export default App;
