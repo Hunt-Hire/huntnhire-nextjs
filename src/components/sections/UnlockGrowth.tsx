@@ -51,18 +51,6 @@ const UnlockGrowth = () => {
           </p>
         </div>
 
-        {/* Problem Statement */}
-        <div className="hidden text-center mb-16">
-          <h3 className="text-3xl md:text-4xl font-semibold text-primary mb-6 animate-slide-up animation-delay-300 text-[#7960BE]">
-            Don’t Let Talent Gaps Stifle Your Agency’s Momentum
-          </h3>
-          <p className="text-xl max-w-4xl mx-auto leading-relaxed animate-slide-up animation-delay-400 text-[#191919]">
-            Lost revenue and burnout from hiring delays? Our streamlined process
-            delivers vetted global talent, letting you focus on scaling and
-            exceeding growth goals.
-          </p>
-        </div>
-
         {/* Advantages */}
         <div className="mb-20">
           <h3 className="text-3xl md:text-4xl font-semibold text-center mb-12 animate-slide-up animation-delay-500 text-[#7960BE]">
