@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import AnimatedCard from "../ui/AnimatedCard";
 import { Calendar, Users, Target } from "lucide-react";
+import CalendlyWidget from "../CalendlyWidget";
 
 interface ProcessStep {
   number: string;
@@ -94,26 +95,24 @@ const HowItWorks = () => {
           ))}
         </div>
 
-        {/* Updated Calendar Section with Iframe */}
-        <div className="text-center mt-20">
-          <h3 className="text-3xl font-bold mb-6">
-            Schedule Your Free{" "}
-            <span className="text-[#F7FFF7]">Growth Consultation</span> Today
+        {/*Calendar Section */}
+        <div className="text-center mt-20 px-4">
+          <h3 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-white">
+            Schedule Your Free
+            <span className="text-accent">Growth Consultation</span> Today
           </h3>
-          <p className="text-xl max-w-2xl mx-auto mb-12">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-12 text-white/80">
             Book a discovery call with our team to discuss your needs and
             kickstart the hiring process.
           </p>
+
           <section
             id="calender"
-            className="max-w-4xl mx-auto p-6 bg-gradient-to-r from-primary/5 to-primary/10 rounded-xl shadow-lg border border-white/5"
+            className="max-w-6xl mx-auto bg-gradient-to-br from-white/5 to-white/10
+             border border-white/10 p-2 md:p-4 rounded-2xl shadow-xl backdrop-blur-lg"
           >
-            <div className="relative w-full h-[1000px] rounded-lg overflow-hidden">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/booking/VLEtHOy9DFEN0qAxh07w"
-                className="w-full h-full border-none overflow-hidden"
-                id="LOyiwv4mey6avrQq98vm_1746482335242"
-              />
+            <div className="rounded-xl w-full">
+              <CalendlyWidget url="https://calendly.com/dev-huntnhire/30min" />
             </div>
           </section>
         </div>

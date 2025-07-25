@@ -52,7 +52,7 @@ const UnlockGrowth = () => {
         </div>
 
         {/* Problem Statement */}
-        <div className="text-center mb-16">
+        <div className="hidden text-center mb-16">
           <h3 className="text-3xl md:text-4xl font-semibold text-primary mb-6 animate-slide-up animation-delay-300 text-[#7960BE]">
             Don’t Let Talent Gaps Stifle Your Agency’s Momentum
           </h3>
