@@ -67,7 +67,7 @@ const AnimatedCard = ({
       ref={cardRef}
       style={{ animationDelay: `${animationDelay}ms` }}
       className={cn(
-        "glass-card p-6 md:p-8 opacity-0",
+        "glass-card p-6 md:p-8 opacity-0 bg-black/5",
         getAnimationClass(),
         hoverEffect &&
           "transition-transform duration-300 hover:translate-y-[-5px]",
