@@ -21,6 +21,13 @@ const Contact = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (isSubmitted) {
+      const timer = setTimeout(() => setIsSubmitted(false), 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmitted]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -40,6 +47,7 @@ const Contact = () => {
     try {
       await emailjs.send(service_id, template_id, data, public_id);
       setIsSubmitted(true);
+      formRef.current.reset();
     } catch (err) {
       console.error(err);
       setError("Failed to send message. Please try again.");
@@ -57,18 +65,15 @@ const Contact = () => {
         {/* Hero Section */}
         <section className="py-20 md:py-32 relative overflow-hidden bg-[#7960BE]">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-primary/10 to-primary/5 blur-[100px] opacity-50" />
-
           <div className="container-custom relative z-10">
             <div className="max-w-3xl mx-auto text-center opacity-0 animate-fade-in">
               <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-[#F7FFF7] shadow-md">
                 <p className="text-sm font-medium text-primary">Contact Us</p>
               </div>
-
               <h1 className="mb-6">
                 Let's Start a <br />
                 <span className="text-[#0DAB76]/70">Conversation</span>
               </h1>
-
               <p className="text-xl text-black">
                 Have a project in mind or want to learn more about our services?
                 We'd love to hear from you.
@@ -91,15 +96,15 @@ const Contact = () => {
                 </h3>
 
                 {isSubmitted ? (
-                  <div className="bg-primary/20 border border-primary/30 rounded-md p-6 text-center">
+                  <div className="bg-primary/20 border border-primary/30 rounded-md p-6 text-center animate-fade-in">
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 text-primary mb-4">
                       <Send size={24} />
                     </div>
                     <h4 className="text-xl font-semibold mb-2">
                       Message Sent!
                     </h4>
-                    <p className="text-muted-foreground">
-                      Thanks for reaching out. We'll get back to you shortly.
+                    <p className="text-black">
+                      Thanks for contacting us. We'll get back to you shortly.
                     </p>
                   </div>
                 ) : (
@@ -132,7 +137,7 @@ const Contact = () => {
                         name="title"
                         type="text"
                         required
-                        className="w-full rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                        className="w-full rounded-md px-4 py-2 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/30 transition"
                       />
                     </div>
 
@@ -148,7 +153,7 @@ const Contact = () => {
                         name="name"
                         type="text"
                         required
-                        className="w-full rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                        className="w-full rounded-md px-4 py-2 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/30 transition"
                       />
                     </div>
 
@@ -164,7 +169,7 @@ const Contact = () => {
                         name="email"
                         type="email"
                         required
-                        className="w-full rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                        className="w-full rounded-md px-4 py-2 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/30 transition"
                       />
                     </div>
 
@@ -180,7 +185,7 @@ const Contact = () => {
                         name="message"
                         required
                         rows={5}
-                        className="w-full rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary/30"
+                        className="w-full rounded-md px-4 py-2 border border-primary/20 focus:outline-none focus:ring-2 focus:ring-primary/30 transition"
                       ></textarea>
                     </div>
 
@@ -244,16 +249,20 @@ const Contact = () => {
                         href="mailto:careers@huntnhire.co"
                         className="text-[#7960be] hover:underline"
                       >
-                        careers@huntnhire.co
+                        info@huntnhire.co
                       </a>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Email us at admin@huntnhire.co if you have any queries.
+                        Email us at the above address if you have any queries.
                       </p>
                     </div>
                   </div>
                 </AnimatedCard>
 
-                <AnimatedCard animationDirection="right" animationDelay={200}>
+                <AnimatedCard
+                  className="hidden"
+                  animationDirection="right"
+                  animationDelay={200}
+                >
                   <div className="flex items-start">
                     <div className="mr-4 p-3 rounded-full bg-primary/20 text-primary">
                       <Phone size={24} />
@@ -280,8 +289,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-medium mb-1">Visit Us</h4>
-                      <p className="text-primary">123 Innovation Way</p>
-                      <p className="text-primary">Tech City, CA 90210</p>
+                      <p className="text-primary">2810 N Church St# 148466</p>
+                      <p className="text-primary">Wilmington, DE 19802</p>
                       <p className="text-sm text-muted-foreground mt-1">
                         By appointment only
                       </p>
