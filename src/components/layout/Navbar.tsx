@@ -187,9 +187,9 @@ const Navbar = () => {
           {/* <Link to="/about" className="nav-link hover-lift">
             About
           </Link> */}
-          {/* <Link to="/contact" className="nav-link hover-lift">
+          <Link to="/contact" className="nav-link hover-lift">
             Contact
-          </Link> */}
+          </Link>
           <Link to="/careers" className="nav-link hover-lift">
             Careers
           </Link>
