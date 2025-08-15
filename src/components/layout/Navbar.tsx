@@ -20,7 +20,18 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // This should come from your auth context/state
+  // Check if user is logged in by checking for auth token or user session
+  // You can replace this with your actual auth logic
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    // Check localStorage for auth token or session
+    if (typeof window !== 'undefined') {
+      return !!(localStorage.getItem('authToken') || sessionStorage.getItem('authToken'));
+    }
+    return false;
+  });
+  
+  // For testing purposes, you can temporarily set this to true to see the dashboard icon:
+  // const [isLoggedIn, setIsLoggedIn] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -305,24 +316,18 @@ const Navbar = () => {
           {/* Mobile Sign-in/Dashboard Button */}
           <button
             onClick={handleAuthClick}
-            className="group relative inline-flex items-center justify-center h-10 px-4 rounded-full bg-gradient-to-r from-[#7960be] via-[#8a72cf] to-[#9b85de] text-white text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#7960be]/30 overflow-hidden w-full mt-3"
+            className="group relative inline-flex items-center justify-center h-10 w-10 rounded-full bg-gradient-to-r from-[#7960be] via-[#8a72cf] to-[#9b85de] text-white font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#7960be]/30 overflow-hidden mx-auto mt-3"
             aria-label={isLoggedIn ? "Go to Dashboard" : "Sign In"}
           >
             {/* Animated background gradient */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#8a72cf] via-[#9b85de] to-[#ac96ef] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
             {/* Content */}
-            <div className="relative flex items-center gap-2">
+            <div className="relative flex items-center justify-center">
               {isLoggedIn ? (
-                <>
-                  <LayoutDashboard size={16} className="text-white/90" />
-                  <span>Go to Dashboard</span>
-                </>
+                <LayoutDashboard size={18} className="text-white/90" />
               ) : (
-                <>
-                  <LogIn size={16} className="text-white/90" />
-                  <span>Sign In</span>
-                </>
+                <LogIn size={18} className="text-white/90" />
               )}
             </div>
 
