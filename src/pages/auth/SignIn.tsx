@@ -1,19 +1,25 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import { Eye, EyeOff, LogIn } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useAuth } from '@/hooks/useAuth';
-import { toast } from 'sonner';
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Eye, EyeOff, LogIn } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { useAuth } from "@/hooks/useAuth";
+import { toast } from "sonner";
 
 const signInSchema = z.object({
-  email: z.string().email('Please enter a valid email address'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
+  email: z.string().email("Please enter a valid email address"),
+  password: z.string().min(6, "Password must be at least 6 characters"),
 });
 
 type SignInForm = z.infer<typeof signInSchema>;
@@ -26,7 +32,7 @@ const SignIn = () => {
   // Redirect authenticated users to dashboard
   useEffect(() => {
     if (isAuthenticated && !loading) {
-      navigate('/admin/dashboard', { replace: true });
+      navigate("/admin/dashboard", { replace: true });
     }
   }, [isAuthenticated, loading, navigate]);
 
@@ -41,10 +47,10 @@ const SignIn = () => {
   const onSubmit = async (data: SignInForm) => {
     try {
       await signIn(data.email, data.password);
-      toast.success('Welcome back! Redirecting to dashboard...');
-      navigate('/admin/dashboard');
+      toast.success("Welcome back! Redirecting to dashboard...");
+      navigate("/admin/dashboard");
     } catch (error: any) {
-      toast.error(error.message || 'Failed to sign in');
+      toast.error(error.message || "Failed to sign in");
     }
   };
 
@@ -53,7 +59,10 @@ const SignIn = () => {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-block hover:opacity-90 transition-opacity">
+          <Link
+            to="/"
+            className="inline-block hover:opacity-90 transition-opacity"
+          >
             <img
               src="/lovable-uploads/Hunt&Hire.png"
               alt="Hunt & Hire Logo"
@@ -80,8 +89,8 @@ const SignIn = () => {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="admin@huntnhire.com"
-                  {...register('email')}
+                  placeholder="Enter your email"
+                  {...register("email")}
                   className="bg-secondary/20 border-white/10 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/20"
                 />
                 {errors.email && (
@@ -96,9 +105,9 @@ const SignIn = () => {
                 <div className="relative">
                   <Input
                     id="password"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
-                    {...register('password')}
+                    {...register("password")}
                     className="bg-secondary/20 border-white/10 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/20 pr-10"
                   />
                   <button
@@ -114,7 +123,9 @@ const SignIn = () => {
                   </button>
                 </div>
                 {errors.password && (
-                  <p className="text-sm text-red-400">{errors.password.message}</p>
+                  <p className="text-sm text-red-400">
+                    {errors.password.message}
+                  </p>
                 )}
               </div>
 
