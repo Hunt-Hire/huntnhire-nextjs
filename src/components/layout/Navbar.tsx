@@ -190,6 +190,9 @@ const Navbar = () => {
           <Link to="/contact" className="nav-link hover-lift">
             Contact
           </Link>
+          <Link to="/blogs" className="nav-link hover-lift">
+            Blog
+          </Link>
           <Link to="/careers" className="nav-link hover-lift">
             Careers
           </Link>
@@ -244,6 +247,9 @@ const Navbar = () => {
           </Link> */}
           <Link to="/contact" className="nav-link w-full py-3 text-[#7960BE]">
             Contact
+          </Link>
+          <Link to="/blogs" className="nav-link w-full py-3 text-[#7960BE]">
+            Blog
           </Link>
           <Link to="/careers" className="nav-link w-full py-3 text-[#7960BE]">
             Careers

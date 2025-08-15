@@ -49,6 +49,7 @@
     "emailjs-com": "^3.2.0",
     "embla-carousel-react": "^8.3.0",
     "express": "^4.21.2",
+    "firebase": "^12.1.0",
     "framer-motion": "^12.9.2",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.462.0",
