@@ -9,6 +9,9 @@ import {
   Youtube,
   Linkedin,
   Mail,
+  User,
+  LogIn,
+  LayoutDashboard,
 } from "lucide-react";
 
 const Navbar = () => {
@@ -17,6 +20,7 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // This should come from your auth context/state
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -79,6 +83,15 @@ const Navbar = () => {
         top: 0,
         behavior: "smooth",
       });
+    }
+  };
+
+  // Auth handlers
+  const handleAuthClick = () => {
+    if (isLoggedIn) {
+      navigate("/admin/dashboard"); // Navigate to dashboard if logged in
+    } else {
+      navigate("/auth/sign-in"); // Navigate to sign-in if not logged in
     }
   };
 
@@ -209,6 +222,34 @@ const Navbar = () => {
           >
             <Search size={20} />
           </button>
+
+          {/* Beautiful Tiny Sign-in/Dashboard Button */}
+          <button
+            onClick={handleAuthClick}
+            className="ml-3 group relative inline-flex items-center justify-center h-9 px-3 rounded-full bg-gradient-to-r from-[#7960be] via-[#8a72cf] to-[#9b85de] text-white text-xs font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#7960be]/30 overflow-hidden"
+            aria-label={isLoggedIn ? "Go to Dashboard" : "Sign In"}
+          >
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#8a72cf] via-[#9b85de] to-[#ac96ef] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            {/* Content */}
+            <div className="relative flex items-center gap-1.5">
+              {isLoggedIn ? (
+                <>
+                  <LayoutDashboard size={14} className="text-white/90" />
+                </>
+              ) : (
+                <>
+                  <LogIn size={14} className="text-white/90" />
+                </>
+              )}
+            </div>
+
+            {/* Subtle shine effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            </div>
+          </button>
         </div>
 
         {/* Mobile menu button */}
@@ -260,6 +301,36 @@ const Navbar = () => {
           >
             Book a Discovery Call
           </a>
+
+          {/* Mobile Sign-in/Dashboard Button */}
+          <button
+            onClick={handleAuthClick}
+            className="group relative inline-flex items-center justify-center h-10 px-4 rounded-full bg-gradient-to-r from-[#7960be] via-[#8a72cf] to-[#9b85de] text-white text-sm font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-[#7960be]/30 overflow-hidden w-full mt-3"
+            aria-label={isLoggedIn ? "Go to Dashboard" : "Sign In"}
+          >
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#8a72cf] via-[#9b85de] to-[#ac96ef] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            {/* Content */}
+            <div className="relative flex items-center gap-2">
+              {isLoggedIn ? (
+                <>
+                  <LayoutDashboard size={16} className="text-white/90" />
+                  <span>Go to Dashboard</span>
+                </>
+              ) : (
+                <>
+                  <LogIn size={16} className="text-white/90" />
+                  <span>Sign In</span>
+                </>
+              )}
+            </div>
+
+            {/* Subtle shine effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+            </div>
+          </button>
         </div>
       </div>
 
