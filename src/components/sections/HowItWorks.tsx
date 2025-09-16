@@ -99,7 +99,7 @@ const HowItWorks = () => {
         <div className="text-center mt-20 px-4">
           <h3 className="text-3xl md:text-4xl font-bold mb-6 leading-tight text-white">
             Schedule Your Free
-            <span className="text-accent">Growth Consultation</span> Today
+            <span className="text-accent ml-2">Growth Consultation</span> Today
           </h3>
           <p className="text-lg md:text-xl max-w-2xl mx-auto mb-12 text-white/80">
             Book a discovery call with our team to discuss your needs and
