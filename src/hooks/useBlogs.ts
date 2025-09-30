@@ -39,7 +39,6 @@ export const useBlogs = () => {
 
   const blogsCollection = collection(db, "blogs");
 
-  // Generate slug
   const generateSlug = (input: string): string => {
     return input
       .toLowerCase()
@@ -49,13 +48,11 @@ export const useBlogs = () => {
       .replace(/-+/g, "-");
   };
 
-  // Fetch all blogs
   const fetchBlogs = async (publishedOnly: boolean = false) => {
     setLoading(true);
     setError(null);
     try {
       let q = query(blogsCollection, orderBy("createdAt", "desc"));
-
       if (publishedOnly) {
         q = query(
           blogsCollection,
@@ -63,19 +60,17 @@ export const useBlogs = () => {
           orderBy("createdAt", "desc")
         );
       }
-
-      const querySnapshot = await getDocs(q);
-      const blogsData = querySnapshot.docs.map((d) => {
-        const data = d.data() as Blog;
+      const snapshot = await getDocs(q);
+      const data = snapshot.docs.map((d) => {
+        const b = d.data() as Blog;
         return {
           id: d.id,
-          ...data,
-          metaKeywords: data.metaKeywords || [],
-          tags: data.tags || [],
+          ...b,
+          metaKeywords: b.metaKeywords || [],
+          tags: b.tags || [],
         };
       });
-
-      setBlogs(blogsData);
+      setBlogs(data);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -83,19 +78,17 @@ export const useBlogs = () => {
     }
   };
 
-  // Fetch single blog by ID
   const fetchBlogById = async (id: string): Promise<Blog | null> => {
     try {
-      const docRef = doc(db, "blogs", id);
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        const data = docSnap.data() as Blog;
+      const ref = doc(db, "blogs", id);
+      const snap = await getDoc(ref);
+      if (snap.exists()) {
+        const b = snap.data() as Blog;
         return {
-          id: docSnap.id,
-          ...data,
-          metaKeywords: data.metaKeywords || [],
-          tags: data.tags || [],
+          id: snap.id,
+          ...b,
+          metaKeywords: b.metaKeywords || [],
+          tags: b.tags || [],
         };
       }
       return null;
@@ -105,20 +98,18 @@ export const useBlogs = () => {
     }
   };
 
-  // Fetch single blog by slug
   const fetchBlogBySlug = async (slug: string): Promise<Blog | null> => {
     try {
       const q = query(blogsCollection, where("slug", "==", slug));
-      const querySnapshot = await getDocs(q);
-
-      if (!querySnapshot.empty) {
-        const d = querySnapshot.docs[0];
-        const data = d.data() as Blog;
+      const snapshot = await getDocs(q);
+      if (!snapshot.empty) {
+        const d = snapshot.docs[0];
+        const b = d.data() as Blog;
         return {
           id: d.id,
-          ...data,
-          metaKeywords: data.metaKeywords || [],
-          tags: data.tags || [],
+          ...b,
+          metaKeywords: b.metaKeywords || [],
+          tags: b.tags || [],
         };
       }
       return null;
@@ -128,32 +119,27 @@ export const useBlogs = () => {
     }
   };
 
-  // Create new blog
   const createBlog = async (
     blogData: Omit<Blog, "id" | "createdAt" | "updatedAt">
   ) => {
     try {
-      const docRef = await addDoc(blogsCollection, {
+      const ref = await addDoc(blogsCollection, {
         ...blogData,
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       });
       await fetchBlogs();
-      return docRef.id;
+      return ref.id;
     } catch (err: any) {
       setError(err.message);
       throw err;
     }
   };
 
-  // Update blog
   const updateBlog = async (id: string, blogData: Partial<Blog>) => {
     try {
-      const docRef = doc(db, "blogs", id);
-      await updateDoc(docRef, {
-        ...blogData,
-        updatedAt: serverTimestamp(),
-      });
+      const ref = doc(db, "blogs", id);
+      await updateDoc(ref, { ...blogData, updatedAt: serverTimestamp() });
       await fetchBlogs();
     } catch (err: any) {
       setError(err.message);
@@ -161,11 +147,10 @@ export const useBlogs = () => {
     }
   };
 
-  // Delete blog
   const deleteBlog = async (id: string) => {
     try {
-      const docRef = doc(db, "blogs", id);
-      await deleteDoc(docRef);
+      const ref = doc(db, "blogs", id);
+      await deleteDoc(ref);
       await fetchBlogs();
     } catch (err: any) {
       setError(err.message);

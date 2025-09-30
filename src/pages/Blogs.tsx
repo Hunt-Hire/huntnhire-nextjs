@@ -4,12 +4,12 @@ import { Calendar, User, Tag, ArrowRight, Search } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SlimHeader from "@/components/sections/SlimHeader";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useBlogs } from "@/hooks/useBlogs";
 import { format } from "date-fns";
+import { Helmet } from "react-helmet-async"; // ✅ Added for SEO
 
 const Blogs = () => {
   const { blogs, loading, fetchBlogs } = useBlogs();
@@ -39,7 +39,6 @@ const Blogs = () => {
     }
   };
 
-  // Get all unique tags from all blogs
   const allTags = Array.from(
     new Set(
       blogs
@@ -48,7 +47,6 @@ const Blogs = () => {
     )
   );
 
-  // Filter blogs based on search query and selected tag
   const filteredBlogs = blogs.filter((blog) => {
     const matchesSearch =
       !searchQuery ||
@@ -67,6 +65,19 @@ const Blogs = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      {/* ✅ SEO Head Tags */}
+      <Helmet>
+        <title>Blogs - Insights & Ideas</title>
+        <meta
+          name="description"
+          content="Explore insights, tips, and stories from the world of recruitment and hiring."
+        />
+        <meta
+          name="keywords"
+          content="blogs, recruitment, hiring, career tips, job search"
+        />
+      </Helmet>
+
       <SlimHeader />
       <Navbar />
 

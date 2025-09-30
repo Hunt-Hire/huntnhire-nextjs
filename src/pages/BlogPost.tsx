@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { useBlogs, Blog } from "@/hooks/useBlogs";
 import { format } from "date-fns";
 import { toast } from "sonner";
+import { Helmet } from "react-helmet-async";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -16,12 +17,12 @@ const BlogPost = () => {
   const { fetchBlogBySlug } = useBlogs();
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
-  const [relatedBlogs, setRelatedBlogs] = useState<Blog[]>([]);
 
   useEffect(() => {
     if (slug) {
-      loadBlog(slug);
+      loadBlog(slug as string);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
   const loadBlog = async (slug: string) => {
@@ -30,7 +31,6 @@ const BlogPost = () => {
       const blogData = await fetchBlogBySlug(slug);
       if (blogData && blogData.published) {
         setBlog(blogData);
-        // TODO: Fetch related blogs based on tags
       } else {
         navigate("/blogs");
         toast.error("Blog post not found");
@@ -45,11 +45,10 @@ const BlogPost = () => {
 
   const formatDate = (timestamp: any) => {
     if (!timestamp) return "N/A";
-
     try {
       const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
       return format(date, "MMMM d, yyyy");
-    } catch (error) {
+    } catch {
       return "N/A";
     }
   };
@@ -62,8 +61,7 @@ const BlogPost = () => {
           text: blog.excerpt,
           url: window.location.href,
         });
-      } catch (error) {
-        // Fallback to copying to clipboard
+      } catch {
         copyToClipboard();
       }
     } else {
@@ -76,6 +74,7 @@ const BlogPost = () => {
     toast.success("Link copied to clipboard!");
   };
 
+  // Loader
   if (loading) {
     return (
       <div className="min-h-screen flex flex-col bg-[#F7FFF7]">
@@ -89,6 +88,7 @@ const BlogPost = () => {
     );
   }
 
+  // Not found
   if (!blog) {
     return (
       <div className="min-h-screen flex flex-col bg-[#F7FFF7]">
@@ -112,8 +112,29 @@ const BlogPost = () => {
     );
   }
 
+  // ✅ Actual Blog Post UI
   return (
     <div className="min-h-screen flex flex-col bg-[#F7FFF7]">
+      {/* SEO Head Tags */}
+      <Helmet>
+        <title>{blog.metaTitle || blog.title}</title>
+        <meta
+          name="description"
+          content={blog.metaDescription || blog.excerpt}
+        />
+        {blog.metaKeywords && (
+          <meta
+            name="keywords"
+            content={
+              Array.isArray(blog.metaKeywords)
+                ? blog.metaKeywords.join(", ")
+                : blog.metaKeywords
+            }
+          />
+        )}
+        <link rel="canonical" href={window.location.href} />
+      </Helmet>
+
       <SlimHeader />
       <Navbar />
 
@@ -156,10 +177,12 @@ const BlogPost = () => {
                     <Calendar className="h-5 w-5" />
                     <span>{formatDate(blog.createdAt)}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <User className="h-5 w-5" />
-                    <span>{blog.author}</span>
-                  </div>
+                  {blog.author && (
+                    <div className="flex items-center gap-2">
+                      <User className="h-5 w-5" />
+                      <span>{blog.author}</span>
+                    </div>
+                  )}
                 </div>
 
                 {blog.tags && blog.tags.length > 0 && (
