@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+// hooks/useBlogs.ts
+import { useState, useEffect } from "react";
 import {
   collection,
   addDoc,
@@ -11,8 +12,8 @@ import {
   orderBy,
   where,
   serverTimestamp,
-} from 'firebase/firestore';
-import { db } from '@/firebaseConfig';
+} from "firebase/firestore";
+import { db } from "@/firebaseConfig";
 
 export interface Blog {
   id?: string;
@@ -26,6 +27,9 @@ export interface Blog {
   tags?: string[];
   featuredImage?: string;
   slug: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  metaKeywords?: string[];
 }
 
 export const useBlogs = () => {
@@ -33,25 +37,44 @@ export const useBlogs = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const blogsCollection = collection(db, 'blogs');
+  const blogsCollection = collection(db, "blogs");
+
+  // Generate slug
+  const generateSlug = (input: string): string => {
+    return input
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-");
+  };
 
   // Fetch all blogs
   const fetchBlogs = async (publishedOnly: boolean = false) => {
     setLoading(true);
     setError(null);
     try {
-      let q = query(blogsCollection, orderBy('createdAt', 'desc'));
-      
+      let q = query(blogsCollection, orderBy("createdAt", "desc"));
+
       if (publishedOnly) {
-        q = query(blogsCollection, where('published', '==', true), orderBy('createdAt', 'desc'));
+        q = query(
+          blogsCollection,
+          where("published", "==", true),
+          orderBy("createdAt", "desc")
+        );
       }
-      
+
       const querySnapshot = await getDocs(q);
-      const blogsData = querySnapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      })) as Blog[];
-      
+      const blogsData = querySnapshot.docs.map((d) => {
+        const data = d.data() as Blog;
+        return {
+          id: d.id,
+          ...data,
+          metaKeywords: data.metaKeywords || [],
+          tags: data.tags || [],
+        };
+      });
+
       setBlogs(blogsData);
     } catch (err: any) {
       setError(err.message);
@@ -63,11 +86,17 @@ export const useBlogs = () => {
   // Fetch single blog by ID
   const fetchBlogById = async (id: string): Promise<Blog | null> => {
     try {
-      const docRef = doc(db, 'blogs', id);
+      const docRef = doc(db, "blogs", id);
       const docSnap = await getDoc(docRef);
-      
+
       if (docSnap.exists()) {
-        return { id: docSnap.id, ...docSnap.data() } as Blog;
+        const data = docSnap.data() as Blog;
+        return {
+          id: docSnap.id,
+          ...data,
+          metaKeywords: data.metaKeywords || [],
+          tags: data.tags || [],
+        };
       }
       return null;
     } catch (err: any) {
@@ -79,12 +108,18 @@ export const useBlogs = () => {
   // Fetch single blog by slug
   const fetchBlogBySlug = async (slug: string): Promise<Blog | null> => {
     try {
-      const q = query(blogsCollection, where('slug', '==', slug));
+      const q = query(blogsCollection, where("slug", "==", slug));
       const querySnapshot = await getDocs(q);
-      
+
       if (!querySnapshot.empty) {
-        const doc = querySnapshot.docs[0];
-        return { id: doc.id, ...doc.data() } as Blog;
+        const d = querySnapshot.docs[0];
+        const data = d.data() as Blog;
+        return {
+          id: d.id,
+          ...data,
+          metaKeywords: data.metaKeywords || [],
+          tags: data.tags || [],
+        };
       }
       return null;
     } catch (err: any) {
@@ -94,15 +129,15 @@ export const useBlogs = () => {
   };
 
   // Create new blog
-  const createBlog = async (blogData: Omit<Blog, 'id' | 'createdAt' | 'updatedAt'>) => {
+  const createBlog = async (
+    blogData: Omit<Blog, "id" | "createdAt" | "updatedAt">
+  ) => {
     try {
       const docRef = await addDoc(blogsCollection, {
         ...blogData,
         createdAt: serverTimestamp(),
         updatedAt: serverTimestamp(),
       });
-      
-      // Refresh blogs list
       await fetchBlogs();
       return docRef.id;
     } catch (err: any) {
@@ -114,13 +149,11 @@ export const useBlogs = () => {
   // Update blog
   const updateBlog = async (id: string, blogData: Partial<Blog>) => {
     try {
-      const docRef = doc(db, 'blogs', id);
+      const docRef = doc(db, "blogs", id);
       await updateDoc(docRef, {
         ...blogData,
         updatedAt: serverTimestamp(),
       });
-      
-      // Refresh blogs list
       await fetchBlogs();
     } catch (err: any) {
       setError(err.message);
@@ -131,25 +164,13 @@ export const useBlogs = () => {
   // Delete blog
   const deleteBlog = async (id: string) => {
     try {
-      const docRef = doc(db, 'blogs', id);
+      const docRef = doc(db, "blogs", id);
       await deleteDoc(docRef);
-      
-      // Refresh blogs list
       await fetchBlogs();
     } catch (err: any) {
       setError(err.message);
       throw err;
     }
-  };
-
-  // Generate slug from title
-  const generateSlug = (title: string): string => {
-    return title
-      .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .replace(/-+/g, '-')
-      .trim('-');
   };
 
   useEffect(() => {
