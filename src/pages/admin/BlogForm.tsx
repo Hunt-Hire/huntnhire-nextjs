@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Eye, ArrowLeft, Plus, X } from "lucide-react";
@@ -17,6 +17,7 @@ import ProtectedRoute from "@/components/ProtectedRoute";
 import { useBlogs, Blog } from "@/hooks/useBlogs";
 import { useAuth } from "@/hooks/useAuth";
 import { toast } from "sonner";
+import TextEditor from "@/components/TextEditor";
 
 const blogSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -52,6 +53,7 @@ const BlogForm = () => {
     setValue,
     watch,
     reset,
+    control, // Destructure control for the Controller component
   } = useForm<BlogFormData>({
     resolver: zodResolver(blogSchema),
     defaultValues: {
@@ -184,7 +186,6 @@ const BlogForm = () => {
   };
 
   const handlePreview = () => {
-    // preview uses either user-provided slug OR slug generated from title
     const slugValue =
       watch("slug") && watch("slug").trim() !== ""
         ? generateSlug(watch("slug"))
@@ -211,7 +212,7 @@ const BlogForm = () => {
   return (
     <ProtectedRoute>
       <DashboardLayout>
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-6xl mx-auto space-y-6">
           {/* Header */}
           <div className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
@@ -277,10 +278,16 @@ const BlogForm = () => {
                     {/* Content */}
                     <div className="space-y-2">
                       <Label htmlFor="content">Content *</Label>
-                      <Textarea
-                        id="content"
-                        rows={15}
-                        {...register("content")}
+                      {/* Using Controller to integrate the custom rich text editor */}
+                      <Controller
+                        name="content"
+                        control={control}
+                        render={({ field }) => (
+                          <TextEditor
+                            value={field.value}
+                            onChange={field.onChange}
+                          />
+                        )}
                       />
                       {errors.content && (
                         <p className="text-sm text-red-400">
@@ -302,7 +309,6 @@ const BlogForm = () => {
                   <CardContent className="space-y-4">
                     <div className="flex items-center justify-between">
                       <Label htmlFor="published">Published</Label>
-                      {/* use RHF as single source: setValue toggles the form value */}
                       <Switch
                         id="published"
                         checked={!!published}

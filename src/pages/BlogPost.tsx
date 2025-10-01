@@ -226,19 +226,17 @@ const BlogPost = () => {
         )}
 
         {/* Blog Content */}
-        <section className="py-20">
+        <section>
           <div className="container-custom">
             <div className="max-w-4xl mx-auto">
-              <article className="prose prose-lg prose-invert max-w-none">
+              <article className="prose prose-lg prose-invert max-w-none text-[#191919]">
                 <div
-                  className="text-[#191919] leading-relaxed whitespace-pre-wrap"
                   style={{
                     fontSize: "1.125rem",
                     lineHeight: "1.8",
                   }}
-                >
-                  {blog.content}
-                </div>
+                  dangerouslySetInnerHTML={{ __html: blog.content }}
+                />
               </article>
 
               {/* Article Footer */}
