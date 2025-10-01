@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -28,21 +28,22 @@ const blogSchema = z.object({
   featuredImage: z.string().url().optional().or(z.literal("")),
   metaTitle: z.string().optional(),
   metaDescription: z.string().optional(),
-  metaKeywords: z.string().optional(), // stored as CSV, split into array
+  metaKeywords: z.string().optional(),
+  tags: z.array(z.string()).optional(),
 });
 
 type BlogFormData = z.infer<typeof blogSchema>;
 
 const BlogForm = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id?: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
   const { createBlog, updateBlog, fetchBlogById, generateSlug } = useBlogs();
 
   const [loading, setLoading] = useState(false);
-  const [initialLoading, setInitialLoading] = useState(!!id);
-  const [tags, setTags] = useState<string[]>([]);
+  const [initialLoading, setInitialLoading] = useState<boolean>(!!id);
   const [currentTag, setCurrentTag] = useState("");
+  const lastLoadedId = useRef<string | null>(null);
 
   const isEdit = !!id;
 
@@ -53,7 +54,7 @@ const BlogForm = () => {
     setValue,
     watch,
     reset,
-    control, // Destructure control for the Controller component
+    control,
   } = useForm<BlogFormData>({
     resolver: zodResolver(blogSchema),
     defaultValues: {
@@ -66,78 +67,67 @@ const BlogForm = () => {
       metaTitle: "",
       metaDescription: "",
       metaKeywords: "",
+      tags: [],
     },
   });
 
-  // Use RHF watch for published (single source of truth)
   const published = watch("published");
   const watchedTitle = watch("title");
-
-  // Load blog if editing
   useEffect(() => {
     let mounted = true;
-    if (isEdit && id) {
-      const loadBlog = async () => {
-        try {
-          const blog = await fetchBlogById(id);
-          if (!mounted) return;
-          if (blog) {
-            reset({
-              title: blog.title,
-              slug: blog.slug,
-              excerpt: blog.excerpt,
-              content: blog.content,
-              published: !!blog.published,
-              featuredImage: blog.featuredImage || "",
-              metaTitle: blog.metaTitle || "",
-              metaDescription: blog.metaDescription || "",
-              metaKeywords: (blog.metaKeywords || []).join(", "),
-            });
-            setTags(blog.tags || []);
-          } else {
-            toast.error("Blog not found");
-            navigate("/admin/blogs");
-          }
-        } catch {
-          toast.error("Failed to load blog");
-          navigate("/admin/blogs");
-        } finally {
-          if (mounted) setInitialLoading(false);
-        }
-      };
-      loadBlog();
-    } else {
+    if (!isEdit || !id) {
       setInitialLoading(false);
+      return;
     }
+    if (lastLoadedId.current === id) {
+      setInitialLoading(false);
+      return;
+    }
+
+    const loadBlog = async () => {
+      setInitialLoading(true);
+      try {
+        const blog = await fetchBlogById(id);
+        if (!mounted) return;
+        if (!blog) {
+          toast.error("Blog not found");
+          navigate("/admin/blogs");
+          return;
+        }
+
+        reset({
+          title: blog.title ?? "",
+          slug: blog.slug ?? "",
+          excerpt: blog.excerpt ?? "",
+          content: blog.content ?? "",
+          published: !!blog.published,
+          featuredImage: blog.featuredImage ?? "",
+          metaTitle: blog.metaTitle ?? "",
+          metaDescription: blog.metaDescription ?? "",
+          metaKeywords: Array.isArray(blog.metaKeywords)
+            ? blog.metaKeywords.join(", ")
+            : (blog.metaKeywords as string) ?? "",
+          tags: blog.tags ?? [],
+        });
+
+        lastLoadedId.current = id;
+      } catch (err) {
+        console.error(err);
+        if (!mounted) return;
+        toast.error("Failed to load blog");
+        navigate("/admin/blogs");
+      } finally {
+        if (mounted) setInitialLoading(false);
+      }
+    };
+
+    loadBlog();
+
     return () => {
       mounted = false;
     };
-  }, [id, isEdit, fetchBlogById, reset, navigate]);
+  }, [id, isEdit, fetchBlogById, navigate, reset]);
 
-  // Tag helpers (functional updates)
-  const addTag = () => {
-    const t = currentTag.trim();
-    if (!t) return;
-    setTags((prev) => {
-      if (prev.includes(t)) return prev;
-      return [...prev, t];
-    });
-    setCurrentTag("");
-  };
-
-  const removeTag = (tagToRemove: string) => {
-    setTags((prev) => prev.filter((t) => t !== tagToRemove));
-  };
-
-  // handle Enter key in tag input -> add tag and prevent form submission
-  const handleTagKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      addTag();
-    }
-  };
-
-  // Submit
   const onSubmit = async (data: BlogFormData) => {
     if (!user?.email) {
       toast.error("User not authenticated");
@@ -150,14 +140,13 @@ const BlogForm = () => {
         title: data.title,
         excerpt: data.excerpt,
         content: data.content,
-        published: !!data.published, // from RHF
+        published: !!data.published,
         author: user.email,
-        // use provided slug if user entered one, otherwise generate from title
         slug:
           data.slug && data.slug.trim() !== ""
             ? generateSlug(data.slug)
             : generateSlug(data.title),
-        tags,
+        tags: data.tags || [],
         featuredImage: data.featuredImage || undefined,
         metaTitle: data.metaTitle?.trim() || data.title,
         metaDescription: data.metaDescription?.trim() || data.excerpt,
@@ -179,7 +168,8 @@ const BlogForm = () => {
 
       navigate("/admin/blogs");
     } catch (error: any) {
-      toast.error(error.message || "Failed to save blog");
+      console.error(error);
+      toast.error(error?.message || "Failed to save blog");
     } finally {
       setLoading(false);
     }
@@ -278,7 +268,6 @@ const BlogForm = () => {
                     {/* Content */}
                     <div className="space-y-2">
                       <Label htmlFor="content">Content *</Label>
-                      {/* Using Controller to integrate the custom rich text editor */}
                       <Controller
                         name="content"
                         control={control}
@@ -375,20 +364,6 @@ const BlogForm = () => {
                   <CardContent className="space-y-3">
                     <div className="space-y-2">
                       <label
-                        htmlFor="metaTitle"
-                        className="text-sm font-medium text-foreground"
-                      >
-                        Meta Title
-                      </label>
-                      <Input
-                        id="metaTitle"
-                        placeholder="Meta Title"
-                        {...register("metaTitle")}
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label
                         htmlFor="slug"
                         className="text-sm font-medium text-foreground"
                       >
@@ -398,6 +373,20 @@ const BlogForm = () => {
                         id="slug"
                         placeholder="Slug (leave empty to auto-generate)"
                         {...register("slug")}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="metaTitle"
+                        className="text-sm font-medium text-foreground"
+                      >
+                        Meta Title
+                      </label>
+                      <Input
+                        id="metaTitle"
+                        placeholder="Meta Title"
+                        {...register("metaTitle")}
                       />
                     </div>
 
@@ -438,35 +427,82 @@ const BlogForm = () => {
                     <CardTitle>Tags</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-4">
-                    <div className="flex gap-2">
-                      <Input
-                        value={currentTag}
-                        onChange={(e) => setCurrentTag(e.target.value)}
-                        onKeyDown={handleTagKeyDown}
-                        placeholder="Add a tag..."
-                        aria-label="Add tag"
-                      />
-                      <Button type="button" onClick={addTag} size="sm">
-                        <Plus className="h-4 w-4" />
-                      </Button>
-                    </div>
+                    <Controller
+                      name="tags"
+                      control={control}
+                      render={({ field }) => {
+                        const addTag = () => {
+                          const t = currentTag.trim();
+                          if (!t) return;
+                          const current = Array.isArray(field.value)
+                            ? field.value
+                            : [];
+                          if (!current.includes(t)) {
+                            field.onChange([...current, t]);
+                          }
+                          setCurrentTag("");
+                        };
 
-                    {tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {tags.map((tag) => (
-                          <Badge key={tag} className="flex items-center gap-2">
-                            <span>{tag}</span>
-                            <button
-                              type="button"
-                              onClick={() => removeTag(tag)}
-                              className="ml-2"
-                            >
-                              <X className="h-3 w-3" />
-                            </button>
-                          </Badge>
-                        ))}
-                      </div>
-                    )}
+                        const removeTag = (tagToRemove: string) => {
+                          const current = Array.isArray(field.value)
+                            ? field.value
+                            : [];
+                          field.onChange(
+                            current.filter((t) => t !== tagToRemove)
+                          );
+                        };
+
+                        const handleTagKeyDown = (
+                          e: React.KeyboardEvent<HTMLInputElement>
+                        ) => {
+                          if (e.key === "Enter") {
+                            e.preventDefault();
+                            addTag();
+                          }
+                        };
+
+                        const tagsArray = Array.isArray(field.value)
+                          ? field.value
+                          : [];
+
+                        return (
+                          <>
+                            <div className="flex gap-2">
+                              <Input
+                                value={currentTag}
+                                onChange={(e) => setCurrentTag(e.target.value)}
+                                onKeyDown={handleTagKeyDown}
+                                placeholder="Add a tag..."
+                                aria-label="Add tag"
+                              />
+                              <Button type="button" onClick={addTag} size="sm">
+                                <Plus className="h-4 w-4" />
+                              </Button>
+                            </div>
+
+                            {tagsArray.length > 0 && (
+                              <div className="flex flex-wrap gap-2">
+                                {tagsArray.map((tag) => (
+                                  <Badge
+                                    key={tag}
+                                    className="flex items-center gap-2"
+                                  >
+                                    <span>{tag}</span>
+                                    <button
+                                      type="button"
+                                      onClick={() => removeTag(tag)}
+                                      className="ml-2"
+                                    >
+                                      <X className="h-3 w-3" />
+                                    </button>
+                                  </Badge>
+                                ))}
+                              </div>
+                            )}
+                          </>
+                        );
+                      }}
+                    />
                   </CardContent>
                 </Card>
               </div>
