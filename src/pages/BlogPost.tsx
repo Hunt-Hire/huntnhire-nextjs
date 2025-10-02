@@ -134,7 +134,6 @@ const BlogPost = () => {
         )}
         <link rel="canonical" href={window.location.href} />
       </Helmet>
-
       <SlimHeader />
       <Navbar />
 
@@ -142,7 +141,7 @@ const BlogPost = () => {
         {/* Hero Section */}
         <section className="py-20 bg-[#7960BE]">
           <div className="container-custom">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <div className="flex items-center gap-4 mb-6">
                 <Link to="/blogs">
                   <Button
@@ -212,7 +211,7 @@ const BlogPost = () => {
         {blog.featuredImage && (
           <section className="py-0">
             <div className="container-custom">
-              <div className="max-w-4xl mx-auto">
+              <div className="max-w-6xl mx-auto">
                 <div className="aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
                   <img
                     src={blog.featuredImage}
@@ -228,13 +227,19 @@ const BlogPost = () => {
         {/* Blog Content */}
         <section>
           <div className="container-custom">
-            <div className="max-w-4xl mx-auto">
-              <article className="prose prose-lg prose-invert max-w-none text-[#191919]">
+            <div className="max-w-6xl mx-auto">
+              <article className="max-w-none text-[#191919]">
                 <div
-                  style={{
-                    fontSize: "1.125rem",
-                    lineHeight: "1.8",
-                  }}
+                  className="
+                    text-[1.125rem] leading-[1.9rem]
+                    [&_p]:my-5 [&_p]:text-[1.125rem]
+                    [&_h1]:mt-8 [&_h1]:mb-6 [&_h1]:text-3xl
+                    [&_h2]:mt-10 [&_h2]:mb-6 [&_h2]:text-2xl
+                    [&_h3]:mt-8 [&_h3]:mb-4
+                    [&_ul]:list-disc [&_ul]:pl-7 [&_ul]:marker:text-[#191919] [&_ul]:marker:text-[0.95rem]
+                    [&_ol]:list-decimal [&_ol]:pl-7
+                    [&_li]:my-2 [&_li]:leading-[1.6]
+                  "
                   dangerouslySetInnerHTML={{ __html: blog.content }}
                 />
               </article>
