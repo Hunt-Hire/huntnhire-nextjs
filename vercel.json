@@ -2,8 +2,8 @@
   "redirects": [
     {
       "source": "/",
-      "has": [{ "type": "query", "key": ":any" }],
-      "destination": "/",
+      "query": { ":path*": ":path*" },
+      "destination": "/404",
       "permanent": false
     }
   ],
