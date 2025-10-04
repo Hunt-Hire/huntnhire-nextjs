@@ -9,7 +9,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!api).*)",
+      "source": "/((?!api|404).*)",
       "destination": "/index.html"
     }
   ],
