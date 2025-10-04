@@ -1,20 +1,15 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "query",
-          "key": ":param"
-        }
-      ],
-      "destination": "/404",
+      "source": "/:path*/",
+      "has": [{ "type": "query", "key": ".*" }],
+      "destination": "/",
       "permanent": false
     }
   ],
   "rewrites": [
     {
-      "source": "/((?!api|404).*)",
+      "source": "/((?!api).*)",
       "destination": "/index.html"
     }
   ],
