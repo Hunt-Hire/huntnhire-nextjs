@@ -4,42 +4,111 @@
   <url>
     <loc>https://www.huntnhire.co/</loc>
     <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.huntnhire.co/about</loc>
     <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.huntnhire.co/services</loc>
     <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.huntnhire.co/privacy</loc>
     <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.huntnhire.co/careers</loc>
     <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.huntnhire.co/terms</loc>
     <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.huntnhire.co/contact</loc>
     <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blogs -->
+  <url>
+    <loc>https://huntnhire.co/blogs/talent-solutions-los-angeles-remote-hiring</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/virtual-talent-accounting-firms-chicago-new-york-los-angeles</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/virtual-talent-for-social-media-agencies-usa</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/remote-hiring-software-developers-usa</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/remote-hiring-new-york-talent-solutions-usa</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/virtual-assistants-for-social-media-agencies-usa</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/why-saas-teams-prefer-remote-talent-solutions</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/virtual-assistants-saas-scale-usa</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/talent-hunt-startup-hiring-usa</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/talent-hunt-in-usa</loc>
+    <lastmod>2025-07-31</lastmod>
+    <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
