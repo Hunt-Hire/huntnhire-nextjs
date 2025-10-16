@@ -1,14 +1,12 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
-Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-login.php
+Disallow: /wp-admin/
+Disallow: /feed/
+Disallow: /case-studie-cat/
+Disallow: /our-service-style-1/
+Disallow: /our-service-style-2/
+Disallow: /our-team/
+
+Sitemap: https://huntnhire.co/sitemap.xml
