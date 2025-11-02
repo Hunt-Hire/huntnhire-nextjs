@@ -11,7 +11,7 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
   const fullText =
-    "Seamless Talent, Superior Results\nScale Effortlessly with our Expert Global Team";
+    "Scale Your Business faster With Expert Virtual Assistants and \n Global Talent Solutions Tailored for Marketing and SaaS Agencies.";
   const typingSpeed = 40;
 
   useEffect(() => {
@@ -90,7 +90,7 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
             bg-[#0DAB76]/70 text-[#F7FFF7] py-2 px-4 rounded-full text-xs sm:text-sm font-semibold shadow-md"
             >
               <Sparkles className="w-4 h-4 mr-2" />
-              Cost-Effective Scaling, Uncompromising Quality
+              Build Smart Teams. Grow with Global Talent.
             </div>
 
             <h1 className="text-2xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-white whitespace-pre-line">
@@ -109,8 +109,7 @@ const Hero = ({ onBookCallClick }: HeroProps) => {
             </h1>
 
             <p className="text-gray-200 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Hire pre-vetted remote talent in as little as two weeks with up to
-              70% savings.
+              Hire pre-vetted remote professionals within two weeks and save up to 70% on hiring costs.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
