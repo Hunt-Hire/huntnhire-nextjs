@@ -111,5 +111,55 @@
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
+<url>
+    <loc>https://huntnhire.co/blogs/best-countries-to-hire-remote-talent</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/why-startups-in-the-usa-are-switching-to-virtual-talent-solutions</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/top-tools-and-platforms-for-managing-remote-teams-hunt-n-hire</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/common-mistakes-to-avoid-when-outsourcing-bookkeeping</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/how-remote-hiring-helps-businesses-survive-recession</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/how-to-find-and-hire-reliable-virtual-tax-preparers</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/why-marketing-agencies-prefer-remote-teams</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/ultimate-checklist-for-hiring-virtual-assistant</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/how-remote-admin-support-helps-founders-save-time</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://huntnhire.co/blogs/tasks-to-outsource-to-virtual-assistant</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
 
 </urlset>

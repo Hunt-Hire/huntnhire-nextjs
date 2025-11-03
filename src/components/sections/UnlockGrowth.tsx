@@ -6,19 +6,19 @@ const UnlockGrowth = () => {
     {
       title: "Maximize Budget Efficiency",
       description:
-        "Achieve up to 75% savings on payroll costs by leveraging our global talent.",
+        "Cut payroll costs by up to 75% using our offshore virtual staffing solutions.",
       delay: 100,
     },
     {
       title: "Accelerated Hiring Process",
       description:
-        "Reduce time-to-fill by 70% with our efficient recruitment solutions.",
+        "Reduce time-to-hire by 70% with our quick remote recruitment system.",
       delay: 200,
     },
     {
       title: "Effortless Team Integration",
       description:
-        "Experience seamless collaboration with our pre-vetted, culturally aligned professionals.",
+        "Get culturally aligned virtual assistants and professionals who blend seamlessly into your team.",
       delay: 300,
     },
   ];
@@ -29,10 +29,10 @@ const UnlockGrowth = () => {
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-center text-[#7960BE]">
-            Unlock Exponential Growth: Access Top-Tier Global{" "}
+            Unlock Exponential Growth with Global {" "} Talent.
             <span className="relative inline-block text-[#0DAB76]/70 min-w-12">
               <Typewriter
-                words={["Marketing", "SaaS"]}
+                words={["Marketing", "SaaS", "Web Developers", "SEO Experts", "E-commerce", "Advertising", "Design", "Project Management"]}
                 loop={0}
                 cursorStyle="_"
                 typeSpeed={90}
@@ -46,8 +46,7 @@ const UnlockGrowth = () => {
             Talent
           </h2>
           <p className="text-xl max-w-6xl mx-auto leading-relaxed animate-slide-up animation-delay-200 text-[#191919]">
-            Stop growth bottlenecks. Access skilled global talent, integrate
-            seamlessly, and drive your agency's success.
+            Remove hiring delays. Build your dream remote team with experienced virtual assistants, digital marketers, and creative professionals who help agencies grow smarter and faster.
           </p>
         </div>
 
@@ -82,10 +81,7 @@ const UnlockGrowth = () => {
         {/* Conclusion */}
         <div className="text-center">
           <p className="text-xl max-w-4xl mx-auto leading-relaxed animate-slide-up animation-delay-600 text-[#191919]">
-            If you are ready to remove the limitations of local hiring and
-            access a world of qualified professionals, then we are ready to
-            help. We are dedicated to providing your agency with the talent
-            needed to achieve and exceed your growth objectives.
+         Hunt N Hire connects agencies with the best remote talent across the globe, helping you scale confidently and stay competitive.
           </p>
         </div>
       </div>
